@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import ecotwist from "./assets/partners/ecotwist.png";
+import bharatx from "./assets/partners/bhartex.png";
+import infratech from "./assets/partners/infratech.png";
 import { 
   ArrowRight, 
   BrainCircuit, 
@@ -226,16 +229,99 @@ const Hero = () => {
 };
 
 const CredibilityStrip = () => {
+
+  const partners = [
+    {
+      name: "BiddRx",
+      logo: "https://www.biddrx.com/Images/logo.png",
+      link: "https://www.biddrx.com/"
+    },
+    {
+      name: "Casters Global",
+      logo: "https://castersglobal.com/Casters_Global_Logo.png",
+      link: "https://castersglobal.com/"
+    },
+    {
+      name: "Cehro India",
+      logo: "https://www.cehroindia.org/assets/cehro%20logo%201.png",
+      link: "https://www.cehroindia.org/"
+    },
+    {
+      name: "Sumedha Agro",
+      logo: "https://sumedhaagro.com/assets/Logo-DFEZMT6g.webp",
+      link: "https://sumedhaagro.com/"
+    },
+    {  
+      name: "Homeasy",
+      logo: "https://aixpertslabs.com/assets/homeasy-a05f412d.webp",
+      link: "https://homeasy.io/"
+    },
+    {  
+      name: "Bharatx Ventures",
+      logo: bharatx,
+      link: "https://bharatxventures.com/"
+    },
+    {  
+      name: "Kynyx",
+      logo: "https://kynyx.com/assets/logo12-rzpEHoIw.png",
+      link: "https://kynyx.com/"
+    },
+    {  
+      name: "EcoTwist",
+      logo: ecotwist,
+      link: "https://ecotwist.in/"
+    },
+    {  
+      name: "Bharatx infratech",
+      logo: infratech,
+    },
+  ];
+
+  const loopPartners = [...partners, ...partners, ...partners];
+
   return (
     <div className="bg-white border-b border-slate-100 py-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <p className="text-center text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em] mb-12">Strategic Partners & Collaborators</p>
-        <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-30 grayscale hover:opacity-60 transition-opacity duration-500">
-          {['Microsoft', 'Google', 'NVIDIA', 'OpenAI', 'Meta', 'Amazon'].map((brand) => (
-            <span key={brand} className="text-2xl font-black tracking-tighter text-slate-900">{brand}</span>
-          ))}
+
+      <div className="max-w-10xl mx-auto px-0">
+
+        <p className="text-center text-[18px] font-bold text-slate-400 uppercase tracking-[0.3em] mb-12">
+          Strategic Partners & Collaborators
+        </p>
+
+        <div className="overflow-hidden w-full">
+
+          <div className="flex items-center gap-20 w-max animate-partnersScroll">
+
+            {loopPartners.map((partner, index) => (
+
+              <a
+                key={index}
+                href={partner.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center flex-shrink-0"
+              >
+
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="h-16 object-contain transition-transform duration-300 hover:scale-110"
+                />
+
+                <span className="mt-2 text-sm text-slate-600">
+                  {partner.name}
+                </span>
+
+              </a>
+
+            ))}
+
+          </div>
+
         </div>
+
       </div>
+
     </div>
   );
 };
@@ -672,8 +758,9 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <CredibilityStrip />
+        
         <Solutions />
+        <CredibilityStrip />
         <CapabilityStack />
         <Industries />
         <CaseStudies />
