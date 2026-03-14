@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import About from "./about";
+import Services from "./services";
+import Portfolio from "./portfolio";
+import Contact from "./contact";
+import Corporate from "./corporate";
+import Institute from "./institute";
 import ecotwist from "./assets/partners/ecotwist.png";
 import bharatx from "./assets/partners/bhartex.png";
 import infratech from "./assets/partners/infratech.png";
+import Homeasy from "./assets/partners/homeasy.png";
 import { 
   ArrowRight, 
   BrainCircuit, 
@@ -29,83 +37,112 @@ import { motion, AnimatePresence } from 'motion/react';
 // --- Components ---
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'About', href: '#' },
-    { name: 'Services', href: '#' },
-    { name: 'Academic', href: '#' },
-    { name: 'Portfolio', href: '#' },
-     { name: 'Contact', href: '#' },
-  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 py-4 shadow-sm">
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <div className="flex items-center gap-3 group cursor-pointer">
-         <img
-    src="https://aixpertslabs.com/assets/logo8-4a902e74.png"
-    alt="AIxperts Labs Logo"
-    className="h-10 w-auto"
-  />
-</div>
 
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src="https://aixpertslabs.com/assets/logo8-4a902e74.png"
+            alt="AIxperts Labs Logo"
+            className="h-10"
+          />
+        </Link>
+
+        {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
+
+          {/* Left Menu */}
           <div className="flex items-center gap-8 border-r border-slate-200 pr-8 mr-2">
-            {navLinks.map((link) => (
-              <a key={link.name} href={link.href} className="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors uppercase tracking-widest">
-                {link.name}
-              </a>
-            ))}
+
+            <Link to="/" className="text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
+              Home
+            </Link>
+
+            <Link to="/about" className="text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
+              About
+            </Link>
+
+            <Link to="/services" className="text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
+              Services
+            </Link>
+
+            {/* Academic Dropdown */}
+              <div className="relative group">
+
+                <button className="flex items-center gap-1 text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
+                  Academic
+                  <ChevronRight className="w-4 h-4 rotate-90" />
+                </button>
+
+                {/* Dropdown */}
+                <div className="absolute left-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+
+                  <div className="bg-white shadow-xl border rounded-xl py-2 w-48">
+
+                    <Link
+                      to="/corporate"
+                      className="block px-4 py-2 text-sm hover:bg-slate-100"
+                    >
+                      Corporate Training
+                    </Link>
+
+                    <Link
+                      to="/institute"
+                      className="block px-4 py-2 text-sm hover:bg-slate-100"
+                    >
+                      Institute Courses
+                    </Link>
+
+                  </div>
+
+                </div>
+
+              </div>
+            <Link to="/portfolio" className="text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
+              Portfolio
+            </Link>
+
+            <Link to="/contact" className="text-sm font-bold text-slate-600 hover:text-blue-600 uppercase tracking-widest">
+              Contact
+            </Link>
+
           </div>
-          
+
+          {/* Right Side Buttons */}
           <div className="flex items-center gap-6">
+
             <button className="text-slate-500 hover:text-slate-900 transition-colors">
               <Search className="w-5 h-5" />
             </button>
-            <a href="#" className="text-sm font-bold text-slate-900 flex items-center gap-2 hover:text-blue-600 transition-colors">
-              <User className="w-5 h-5" /> 
-            </a>
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-blue-500 hover:scale-105 transition-all shadow-lg shadow-blue-100">
-              Free Consultation 
+
+            <button className="text-sm font-bold text-slate-900 flex items-center gap-2 hover:text-blue-600 transition-colors">
+              <User className="w-5 h-5" />
             </button>
+
+            <button className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-blue-500 hover:scale-105 transition-all shadow-lg shadow-blue-100">
+              Free Consultation
+            </button>
+
           </div>
+
         </div>
 
-        <button className="lg:hidden text-slate-900" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        {/* Mobile Button */}
+        <button
+          className="lg:hidden text-slate-900"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
           {isMobileMenuOpen ? <X /> : <Menu />}
         </button>
+
       </div>
 
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="fixed inset-0 z-40 bg-white lg:hidden px-8 py-24 overflow-hidden"
-          >
-            <div className="flex flex-col gap-8">
-              {navLinks.map((link) => (
-                <a key={link.name} href={link.href} className="text-2xl font-bold text-slate-900">
-                  {link.name}
-                </a>
-              ))}
-              <button className="bg-blue-600 text-white w-full py-5 rounded-2xl font-bold text-xl">
-                Contact Us
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </nav>
   );
 };
@@ -207,7 +244,7 @@ const Hero = () => {
 
         <div className="overflow-hidden">
 
-          <div className="flex gap-08 animate-scroll w-max">
+          <div className="flex gap-8 animate-scroll w-max">
 
             {doubledCompanies.map((company,i)=>(
               <div
@@ -253,7 +290,7 @@ const CredibilityStrip = () => {
     },
     {  
       name: "Homeasy",
-      logo: "https://aixpertslabs.com/assets/homeasy-a05f412d.webp",
+      logo: Homeasy,
       link: "https://homeasy.io/"
     },
     {  
@@ -269,7 +306,7 @@ const CredibilityStrip = () => {
     {  
       name: "EcoTwist",
       logo: ecotwist,
-      link: "https://ecotwist.in/"
+link: "https://ecotwist.in/"
     },
     {  
       name: "Bharatx infratech",
@@ -280,7 +317,7 @@ const CredibilityStrip = () => {
   const loopPartners = [...partners, ...partners, ...partners];
 
   return (
-    <div className="bg-white border-b border-slate-100 py-16 overflow-hidden">
+    <div className="bg-white border-b border-slate-100 py-7 overflow-hidden">
 
       <div className="max-w-10xl mx-auto px-0">
 
@@ -296,7 +333,7 @@ const CredibilityStrip = () => {
 
               <a
                 key={index}
-                href={partner.link}
+                //href={partner.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center flex-shrink-0"
@@ -335,10 +372,10 @@ const CapabilityStack = () => {
   ];
 
   return (
-    <section className="py-32 bg-white">
+    <section className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl mb-20">
-          <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mb-8 tracking-tight">The AIxpets <br /><span className="text-orange-600">Capability Stack</span></h2>
+        <div className="max-w-3xl mb-10">
+          <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight">The AIxpets <br /><span className="text-orange-600">Capability Stack</span></h2>
           <p className="text-slate-500 text-lg leading-relaxed">Our vertical integration ensures that every layer of your AI transformation is optimized for performance and security.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -366,7 +403,7 @@ const Industries = () => {
   ];
 
   return (
-    <section className="py-32 bg-white border-b border-slate-100">
+    <section className="py-16 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-20 items-center">
           <div className="lg:w-1/2">
@@ -393,7 +430,7 @@ const Industries = () => {
 
 const CaseStudies = () => {
   return (
-    <section className="py-32 bg-white">
+    <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <h2 className="text-5xl font-bold text-slate-900 mb-6 tracking-tight">Impact Stories</h2>
@@ -423,7 +460,7 @@ const CaseStudies = () => {
 
 const EducationEcosystem = () => {
   return (
-    <section className="py-32 bg-white border-b border-slate-100 overflow-hidden relative">
+    <section className="py-16 bg-white border-b border-slate-100 overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div>
@@ -459,31 +496,83 @@ const EducationEcosystem = () => {
 };
 
 const ThoughtLeadership = () => {
+
+  const posts = [
+    { 
+      title: 'The Future of Autonomous Agents',
+      date: 'Mar 10, 2026',
+      category: 'Research',
+      img: 'https://cdn.prod.website-files.com/61bb26fe53aeb2a18bbd17e4/6808eed10b459c00fbfc6473_Hero%20Image.webp'
+    },
+    { 
+      title: 'Scaling AI in Regulated Industries',
+      date: 'Mar 05, 2026',
+      category: 'Strategy',
+      img: 'https://predikly.com/wp-content/uploads/2025/09/PD-AWA.jpg'
+    },
+    { 
+      title: 'Ethics in the Era of AGI',
+      date: 'Feb 28, 2026',
+      category: 'Ethics',
+      img: 'https://media.licdn.com/dms/image/v2/D4E12AQFwiMVC1kb1eA/article-cover_image-shrink_720_1280/B4EZdhLX7nGwAM-/0/1749682066100?e=2147483647&v=beta&t=lishpPK7d9DQpDSLMx8o8b4Ahbe7kgj-tifp6WeRee4'
+    },
+  ];
+
   return (
-    <section className="py-32 bg-white">
+    <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between mb-20">
-          <h2 className="text-5xl font-bold text-slate-900 tracking-tight">Thought Leadership</h2>
+
+        {/* HEADER */}
+        <div className="flex items-center justify-between mb-16">
+          <h2 className="text-5xl font-bold text-slate-900 tracking-tight">
+            Thought Leadership
+          </h2>
+
           <button className="text-orange-600 font-bold flex items-center gap-2 group">
-            All Insights <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            All Insights
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
+
+        {/* BLOG CARDS */}
         <div className="grid md:grid-cols-3 gap-12">
-          {[
-            { title: 'The Future of Autonomous Agents', date: 'Mar 10, 2026', category: 'Research' },
-            { title: 'Scaling AI in Regulated Industries', date: 'Mar 05, 2026', category: 'Strategy' },
-            { title: 'Ethics in the Era of AGI', date: 'Feb 28, 2026', category: 'Ethics' },
-          ].map((post, i) => (
+
+          {posts.map((post, i) => (
+
             <div key={i} className="group cursor-pointer">
-              <div className="h-64 bg-slate-100 rounded-3xl mb-8 overflow-hidden">
-                <div className="w-full h-full bg-slate-200 group-hover:scale-105 transition-transform duration-500" />
+
+              {/* IMAGE */}
+              <div className="h-64 rounded-3xl mb-8 overflow-hidden">
+
+                <img
+                  src={post.img}
+                  alt={post.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+
               </div>
-              <span className="text-orange-600 text-xs font-bold uppercase tracking-widest mb-4 block">{post.category}</span>
-              <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-orange-600 transition-colors">{post.title}</h3>
-              <p className="text-slate-400 text-sm">{post.date}</p>
+
+              {/* CATEGORY */}
+              <span className="text-orange-600 text-xs font-bold uppercase tracking-widest mb-3 block">
+                {post.category}
+              </span>
+
+              {/* TITLE */}
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors">
+                {post.title}
+              </h3>
+
+              {/* DATE */}
+              <p className="text-slate-400 text-sm">
+                {post.date}
+              </p>
+
             </div>
+
           ))}
+
         </div>
+
       </div>
     </section>
   );
@@ -518,11 +607,11 @@ const Solutions = () => {
   ];
 
   return (
-    <section className="py-32 bg-white relative overflow-hidden border-b border-slate-100">
+    <section className="py-10 bg-white relative overflow-hidden border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-16 mb-24 items-end">
+        <div className="grid lg:grid-cols-12 gap-16 mb-14 items-end">
           <div className="lg:col-span-8">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-5 mb-6">
               <div className="h-px w-12 bg-orange-500" />
               <span className="text-orange-500 font-bold uppercase tracking-[0.2em] text-xs">Our Expertise</span>
             </div>
@@ -541,18 +630,18 @@ const Solutions = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-4 gap-6">
           {solutions.map((s, i) => (
             <motion.div 
               key={i}
               whileHover={{ y: -5 }}
-              className="p-12 rounded-[32px] bg-slate-50 border border-slate-200 hover:border-orange-500/30 transition-all duration-500 group relative overflow-hidden"
+              className="p-6 rounded-[32px] bg-slate-50 border border-slate-200 hover:border-orange-500/30 transition-all duration-500 group relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
                 {s.icon}
               </div>
               <div className="flex items-center justify-between mb-10">
-                <div className="w-14 h-14 rounded-2xl bg-slate-900 flex items-center justify-center text-white shadow-lg">
+                <div className="w-14 h-10 rounded-2xl bg-slate-900 flex items-center justify-center text-white shadow-lg">
                   {s.icon}
                 </div>
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] border border-slate-200 px-3 py-1 rounded-full">
@@ -574,7 +663,7 @@ const Solutions = () => {
 
 const HelloGini = () => {
   return (
-    <section className="py-32 bg-white relative overflow-hidden border-b border-slate-100">
+    <section className="py-16 bg-white relative overflow-hidden border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
           <div className="order-2 lg:order-1">
@@ -654,15 +743,15 @@ const HelloGini = () => {
 
 const CTA = () => {
   return (
-    <section className="py-40 bg-white relative overflow-hidden">
-      <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
-        <div className="w-20 h-20 bg-orange-500 rounded-3xl flex items-center justify-center text-white mx-auto mb-12 shadow-2xl shadow-orange-200 rotate-12">
+    <section className="py-6 bg-white relative overflow-hidden">
+      <div className="max-w-4xl mx-auto px-6 text-center relative z-8">
+        <div className="w-20 h-20 bg-orange-500 rounded-3xl flex items-center justify-center text-white mx-auto mb-6 shadow-2xl shadow-orange-200 rotate-12">
           <Zap className="w-10 h-10" />
         </div>
-        <h2 className="text-6xl md:text-8xl font-bold text-slate-900 mb-10 tracking-tighter leading-none">
+        <h2 className="text-4xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tighter leading-none">
           Ready to <span className="text-orange-600">Evolve?</span>
         </h2>
-        <p className="text-xl md:text-2xl text-slate-500 mb-16 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xl md:text-1xl text-slate-500 mb-6 max-w-2xl mx-auto leading-relaxed">
           Join the elite organizations transforming their future with AIxpets Labs. The next era of intelligence starts now.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -684,9 +773,9 @@ const CTA = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-white pt-32 pb-16 border-t border-slate-100">
+    <footer className="bg-white pt-6 pb-6 border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-16 mb-10">
           <div>
             <div className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center">
@@ -738,7 +827,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-16 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-8">
           <p className="text-slate-400 text-sm">© 2026 AIxpets Labs Private Limited. All rights reserved.</p>
           <div className="flex gap-10">
             <a href="#" className="text-slate-400 hover:text-orange-600 text-sm transition-colors">Privacy Policy</a>
@@ -752,24 +841,39 @@ const Footer = () => {
 
 // --- Main App ---
 
+const HomePage = () => (
+  <>
+    <Hero />
+    <Solutions />
+    <CredibilityStrip />
+    <CapabilityStack />
+    <Industries />
+    <CaseStudies />
+    <EducationEcosystem />
+    <HelloGini />
+    <ThoughtLeadership />
+    <CTA />
+  </>
+);
+
 export default function App() {
   return (
-    <div className="min-h-screen bg-white font-sans">
-      <Navbar />
-      <main>
-        <Hero />
-        
-        <Solutions />
-        <CredibilityStrip />
-        <CapabilityStack />
-        <Industries />
-        <CaseStudies />
-        <EducationEcosystem />
-        <HelloGini />
-        <ThoughtLeadership />
-        <CTA />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen bg-white font-sans">
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/corporate" element={<Corporate />} />
+            <Route path="/institute" element={<Institute />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
