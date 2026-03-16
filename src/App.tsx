@@ -221,10 +221,15 @@ const Hero = () => {
 
             <div className="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white/5 animate-float">
 
-              <img
-                src="https://images.unsplash.com/photo-1694903110330-cc64b7e1d21d?q=80&w=3132"
-                className="w-full h-auto"
-              />
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-650 h-auto object-cover"
+              >
+                <source src="/src/assets/videos/aihero.mp4" type="video/mp4" />
+              </video>
 
             </div>
 
