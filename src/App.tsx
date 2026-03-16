@@ -10,6 +10,8 @@ import ecotwist from "./assets/partners/ecotwist.png";
 import bharatx from "./assets/partners/bhartex.png";
 import infratech from "./assets/partners/infratech.png";
 import Homeasy from "./assets/partners/homeasy.png";
+import aihero from "./assets/videos/aihero.mp4";
+
 import { 
   ArrowRight, 
   BrainCircuit, 
@@ -228,7 +230,7 @@ const Hero = () => {
                 playsInline
                 className="w-650 h-auto object-cover"
               >
-                <source src="/src/assets/videos/aihero.mp4" type="video/mp4" />
+                <source src={aihero} type="video/mp4" />
               </video>
 
             </div>
