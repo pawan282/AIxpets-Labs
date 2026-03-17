@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import About from "./about";
 import Services from "./services";
 import Portfolio from "./portfolio";
@@ -278,85 +279,74 @@ const CredibilityStrip = () => {
     {
       name: "BiddRx",
       logo: "https://www.biddrx.com/Images/logo.png",
-      link: "https://www.biddrx.com/"
     },
     {
       name: "Casters Global",
       logo: "https://castersglobal.com/Casters_Global_Logo.png",
-      link: "https://castersglobal.com/"
     },
     {
       name: "Cehro India",
       logo: "https://www.cehroindia.org/assets/cehro%20logo%201.png",
-      link: "https://www.cehroindia.org/"
     },
     {
       name: "Sumedha Agro",
       logo: "https://sumedhaagro.com/assets/Logo-DFEZMT6g.webp",
-      link: "https://sumedhaagro.com/"
     },
     {  
       name: "Homeasy",
       logo: Homeasy,
-      link: "https://homeasy.io/"
     },
     {  
       name: "Bharatx Ventures",
       logo: bharatx,
-      link: "https://bharatxventures.com/"
     },
     {  
       name: "Kynyx",
       logo: "https://kynyx.com/assets/logo12-rzpEHoIw.png",
-      link: "https://kynyx.com/"
     },
     {  
       name: "EcoTwist",
       logo: ecotwist,
-link: "https://ecotwist.in/"
     },
     {  
-      name: "Bharatx infratech",
+      name: "Bharatx Infratech",
       logo: infratech,
     },
   ];
 
-  const loopPartners = [...partners, ...partners, ...partners];
+  const loopPartners = [...partners, ...partners];
 
   return (
-    <div className="bg-white border-b border-slate-100 py-7 overflow-hidden">
+    <section className="bg-white py-16 border-b">
 
-      <div className="max-w-10xl mx-auto px-0">
+      <div className="max-w-7xl mx-auto px-6">
 
-        <p className="text-center text-[18px] font-bold text-slate-400 uppercase tracking-[0.3em] mb-12">
+        <h2 className="text-center text-2xl font-bold mb-12 text-slate-800">
           Strategic Partners & Collaborators
-        </p>
+        </h2>
 
-        <div className="overflow-hidden w-full">
+        <div className="overflow-hidden">
 
-          <div className="flex items-center gap-20 w-max animate-partnersScroll">
+          <div className="flex gap-8 w-max animate-partnersScroll">
 
-            {loopPartners.map((partner, index) => (
+            {loopPartners.map((partner, i) => (
 
-              <a
-                key={index}
-                //href={partner.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center flex-shrink-0"
+              <div
+                key={i}
+                className="w-52 flex-shrink-0 bg-[#E5F4E3] border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition text-center"
               >
 
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="h-16 object-contain transition-transform duration-300 hover:scale-110"
+                  className="h-14 mx-auto object-contain mb-3"
                 />
 
-                <span className="mt-2 text-sm text-slate-600">
+                <p className="text-sm font-semibold text-slate-700">
                   {partner.name}
-                </span>
+                </p>
 
-              </a>
+              </div>
 
             ))}
 
@@ -366,7 +356,7 @@ link: "https://ecotwist.in/"
 
       </div>
 
-    </div>
+    </section>
   );
 };
 
@@ -859,7 +849,7 @@ const HomePage = () => (
     <EducationEcosystem />
     <HelloGini />
     <ThoughtLeadership />
-    <CTA />
+    <CTA /> 
   </>
 );
 
@@ -879,6 +869,7 @@ export default function App() {
             <Route path="/institute" element={<Institute />} />
           </Routes>
         </main>
+        
         <Footer />
       </div>
     </Router>

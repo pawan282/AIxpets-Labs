@@ -108,7 +108,7 @@ const Services = () => {
       </div>
 
       {/* CONTACT CTA */}
-      <div className="max-w-4xl mx-auto px-6 mt-24 mb-24 text-center bg-slate-900 rounded-3xl py-16">
+      <div className="max-w-4xl mx-auto px-6 mt-24 mb-24 text-center bg-slate-900 rounded-3xl py-10">
 
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
           Ready to Build Your AI Solution?
@@ -122,7 +122,7 @@ const Services = () => {
 
           <a
             href="tel:+919811263046"
-            className="bg-orange-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-orange-500 transition"
+            className="bg-orange-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-500 transition"
           >
             📞 Call Now
           </a>
@@ -131,7 +131,7 @@ const Services = () => {
             href="https://wa.me/919811263046"
             target="_blank"
             rel="noreferrer"
-            className="bg-white text-slate-900 px-8 py-4 rounded-full font-semibold hover:bg-slate-200 transition"
+            className="bg-white text-slate-900 px-8 py-3 rounded-full font-semibold hover:bg-slate-200 transition"
           >
             💬 WhatsApp
           </a>

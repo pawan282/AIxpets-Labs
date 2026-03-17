@@ -6,11 +6,11 @@ import { Brain, Cpu, Globe, Users, Sparkles } from "lucide-react"
 export default function AboutPage() {
 
   return (
-    <div className="bg-white text-[#0f172a]">
+    <div className="bg-blue-100 text-[#0f172a]">
 
       {/* HERO */}
 
-      <section className="max-w-7xl mx-auto px-6 pt-32 pb-20">
+      <section className="max-w-3xl mx-auto px-6 pt-20 pb-10">
 
         <motion.div
           initial={{opacity:0,y:40}}
@@ -20,7 +20,7 @@ export default function AboutPage() {
         >
 
           <span className="text-sm font-semibold text-indigo-600 uppercase tracking-widest">
-            About AIxpets Labs
+            About AIxperts Labs
           </span>
 
           <h1 className="text-5xl lg:text-6xl font-bold mt-6 leading-tight">
@@ -39,41 +39,18 @@ export default function AboutPage() {
       </section>
 
 
-      {/* STATS */}
-
-      <section className="border-y border-gray-200 py-20">
-
-        <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 text-center">
-
-          {[
-            {num:"50K+",label:"Students Trained"},
-            {num:"120+",label:"AI Projects Delivered"},
-            {num:"35+",label:"Enterprise Clients"},
-            {num:"25+",label:"Industry Partnerships"}
-          ].map((item,i)=>(
-            <div key={i}>
-              <h3 className="text-4xl font-bold text-indigo-600">{item.num}</h3>
-              <p className="text-gray-600 mt-2">{item.label}</p>
-            </div>
-          ))}
-
-        </div>
-
-      </section>
-
-
       {/* STORY */}
 
-      <section className="max-w-7xl mx-auto px-6 py-28 grid lg:grid-cols-2 gap-16">
+      <section className="max-w-7xl mx-auto px-6 py-12 grid lg:grid-cols-2 gap-16">
 
         <img
-          src="https://images.unsplash.com/photo-1677442136019-21780ecad995"
+          src="https://i0.wp.com/blogs.xpheno.com/wp-content/uploads/2025/01/Next-Big-Thing-in-AI-1.jpg?resize=1024%2C536&ssl=1"
           className="rounded-2xl"
         />
 
         <div>
 
-          <h2 className="text-4xl font-bold mb-6">
+          <h2 className="text-3xl font-bold mb-6">
             Our Story
           </h2>
 
@@ -92,11 +69,62 @@ export default function AboutPage() {
         </div>
 
       </section>
+      <section className="py-12 bg-white">
+  <div className="max-w-7xl mx-auto px-6">
+
+    <div className="text-center mb-12">
+
+  <h2 className="text-4xl font-bold mb-6">
+    AI Innovation Lab
+  </h2>
+
+  <p className="text-slate-600 max-w-2xl mx-auto">
+    Our research labs focus on building next-generation artificial intelligence technologies across multiple domains.
+  </p>
+
+</div>
+
+    {/* AI LAB CARDS */}
+
+    <div className="grid md:grid-cols-3 gap-8 mt-12">
+
+  <div className="p-8 rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-lg transition">
+    <h3 className="text-xl font-bold mb-3">
+      AI Research
+    </h3>
+    <p className="text-slate-500">
+      Exploring advanced machine learning architectures and intelligent systems.
+    </p>
+  </div>
+
+  <div className="p-8 rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-lg transition">
+    <h3 className="text-xl font-bold mb-3">
+      AI Infrastructure
+    </h3>
+    <p className="text-slate-500">
+      Developing scalable AI platforms for enterprise applications.
+    </p>
+  </div>
+
+  <div className="p-8 rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-lg transition">
+    <h3 className="text-xl font-bold mb-3">
+      AI Development
+    </h3>
+    <p className="text-slate-500">
+      Building innovative AI products like HelloGini and intelligent automation platforms.
+    </p>
+  </div>
+
+</div>
+    {/* STATS */}
+
+  </div>
+</section>
 
 
       {/* MISSION + VISION */}
 
-      <section className="bg-gray-50 py-28">
+      <section className="bg-gray-50 py-14">
 
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 px-6">
 
@@ -124,61 +152,44 @@ export default function AboutPage() {
               To become a global leader in artificial intelligence innovation,
               shaping the next generation of AI-driven enterprises, education,
               and digital economies.
+            
             </p>
+            
 
           </div>
 
         </div>
 
       </section>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mt-12">
 
+  <div>
+    <p className="text-4xl font-bold text-blue-600">50K+</p>
+    <p className="text-sm text-slate-500">Students Trained</p>
+  </div>
 
-      {/* INNOVATION LAB */}
+  <div>
+    <p className="text-4xl font-bold text-blue-600">120+</p>
+    <p className="text-sm text-slate-500">AI Projects Delivered</p>
+  </div>
 
-      <section className="max-w-7xl mx-auto px-6 py-28">
+  <div>
+    <p className="text-4xl font-bold text-blue-600">35+</p>
+    <p className="text-sm text-slate-500">Enterprise Clients</p>
+  </div>
 
-        <div className="text-center mb-16">
+  <div>
+    <p className="text-4xl font-bold text-blue-600">25+</p>
+    <p className="text-sm text-slate-500">Industry Partnerships</p>
+  </div>
 
-          <h2 className="text-4xl font-bold">
-            AI Innovation Lab
-          </h2>
+</div> 
 
-          <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Our research labs focus on building next-generation artificial
-            intelligence technologies across multiple domains.
-          </p>
-
-        </div>
-
-
-        <div className="grid md:grid-cols-3 gap-10">
-
-          <Feature
-            icon={<Brain />}
-            title="AI Research"
-            desc="Exploring advanced machine learning architectures and intelligent systems."
-          />
-
-          <Feature
-            icon={<Cpu />}
-            title="AI Infrastructure"
-            desc="Developing scalable AI platforms for enterprise applications."
-          />
-
-          <Feature
-            icon={<Sparkles />}
-            title="AI Product Development"
-            desc="Building innovative AI products like HelloGini and intelligent automation platforms."
-          />
-
-        </div>
-
-      </section>
 
 
       {/* TEAM */}
 
-      <section className="bg-gray-50 py-28">
+      <section className="bg-gray-50 py-14">
 
         <div className="max-w-7xl mx-auto px-6">
 
@@ -194,24 +205,29 @@ export default function AboutPage() {
 
           </div>
 
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-4 gap-3">
 
             <TeamCard
-              name="Marcus Thorne"
+              name="Pradeep Kumar"
               role="Founder & CEO"
-              img="https://randomuser.me/api/portraits/men/32.jpg"
+              img="https://aixpertslabs.com/assets/pradeep_kumar-69a6af88.jpeg"
             />
 
             <TeamCard
-              name="Sarah Chen"
-              role="VP Product"
-              img="https://randomuser.me/api/portraits/women/44.jpg"
+              name="Anshu Bharti"
+              role="Co-Founder & COO"
+              img="https://aixpertslabs.com/assets/Anshu-5f8fa3a3.jpeg"
             />
 
             <TeamCard
-              name="Dr. Elias Vance"
-              role="Chief Research Officer"
-              img="https://randomuser.me/api/portraits/men/65.jpg"
+              name="Dr. Harshu Bharti"
+              role="Co-founder & CTO"
+              img="https://aixpertslabs.com/assets/Harshu-67b2905b.jpeg"
+            />
+            <TeamCard
+              name="Saurav Suman"
+              role="Head of Sales & Partnership"
+              img="https://aixpertslabs.com/assets/Suman-bac29b31.png"
             />
 
           </div>
@@ -223,7 +239,7 @@ export default function AboutPage() {
 
       {/* CTA */}
 
-      <section className="text-center py-28">
+      <section className="text-center py-14">
 
         <h2 className="text-4xl font-bold">
           Join the AI Transformation
@@ -272,7 +288,7 @@ function TeamCard({name,role,img}:{name:string,role:string,img:string}) {
 
       <img
         src={img}
-        className="rounded-xl mb-6 w-full h-[320px] object-cover"
+        className="rounded-xl mb-6 w-full h-[420px] object-cover"
       />
 
       <h3 className="font-semibold text-lg">{name}</h3>
