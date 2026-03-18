@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const portfolioCategories = [
+const categories = [
   "All",
   "AI Automation",
   "Chatbots",
@@ -10,61 +10,61 @@ const portfolioCategories = [
   "Computer Vision"
 ];
 
-const portfolioData = [
+const projects = [
   {
     id: 1,
     title: "AI Customer Support Bot",
-    description:
-      "Automated chatbot system handling 80% of customer queries using NLP.",
     category: "Chatbots",
+    problem: "High support load & slow response time",
+    solution: "LLM-powered chatbot integrated with CRM",
     result: "80% Support Automation",
-    image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200",
+    impact: "Reduced cost by 60% & improved CX",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1600",
     tags: ["ChatGPT", "NLP", "Automation"],
   },
   {
     id: 2,
     title: "AI Sales Prediction System",
-    description:
-      "Machine learning model predicting product demand and sales trends.",
     category: "Machine Learning",
-    result: "35% Sales Forecast Accuracy",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200",
+    problem: "Unpredictable sales & poor forecasting",
+    solution: "ML model using historical + seasonal data",
+    result: "35% Accuracy Improvement",
+    impact: "Optimized inventory & planning",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600",
     tags: ["Python", "ML", "Data Science"],
   },
   {
     id: 3,
     title: "Smart Warehouse Automation",
-    description:
-      "AI powered automation system optimizing warehouse logistics.",
     category: "AI Automation",
+    problem: "Manual operations causing delays",
+    solution: "AI-driven logistics automation system",
     result: "50% Faster Operations",
-    image:
-      "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=1200",
+    impact: "40% reduction in manual effort",
+    image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=1600",
     tags: ["Automation", "Robotics", "AI"],
   },
   {
     id: 4,
-    title: "AI Face Recognition System",
-    description:
-      "Computer vision based security system using deep learning.",
+    title: "AI Face Recognition",
     category: "Computer Vision",
-    result: "99% Detection Accuracy",
-    image:
-      "https://images.unsplash.com/photo-1526378722484-cc5c510c0fef?q=80&w=1200",
-    tags: ["OpenCV", "Deep Learning", "Security"],
+    problem: "Security vulnerabilities",
+    solution: "Deep learning-based face detection system",
+    result: "99% Accuracy",
+    impact: "Enterprise-grade security upgrade",
+    image: "https://images.unsplash.com/photo-1526378722484-cc5c510c0fef?q=80&w=1600",
+    tags: ["OpenCV", "Deep Learning"],
   },
   {
     id: 5,
-    title: "AI E-commerce Recommendation Engine",
-    description:
-      "Personalized product recommendation engine boosting conversions.",
+    title: "E-commerce Recommendation Engine",
     category: "Machine Learning",
-    result: "25% Conversion Increase",
-    image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200",
-    tags: ["AI", "Ecommerce", "Recommendation"],
+    problem: "Low conversion rate",
+    solution: "Personalized AI recommendation engine",
+    result: "25% Conversion Boost",
+    impact: "Significant revenue growth",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600",
+    tags: ["AI", "Ecommerce"],
   },
 ];
 
@@ -72,55 +72,73 @@ const Portfolio = () => {
   const [active, setActive] = useState("All");
 
   useEffect(() => {
-    AOS.init({ duration: 700, once: true });
+    AOS.init({ duration: 800, once: true });
     window.scrollTo(0, 0);
   }, []);
 
   const filtered =
     active === "All"
-      ? portfolioData
-      : portfolioData.filter((p) => p.category === active);
+      ? projects
+      : projects.filter((p) => p.category === active);
 
   return (
     <div className="bg-white pt-24">
 
       {/* HERO */}
-      <div className="max-w-7xl mx-auto px-6 text-center mb-20">
+      <div className="max-w-7xl mx-auto px-6 text-center mb-24">
 
-        <span className="inline-block bg-purple-100 text-purple-600 text-xs font-bold px-4 py-2 rounded-full mb-6 uppercase tracking-widest">
+        <span className="bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-xs font-bold uppercase">
           Our Work
         </span>
 
-        <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
-          Featured <span className="text-purple-600">AI Projects</span>
+        <h1 className="text-5xl md:text-6xl font-bold mt-6 mb-6">
+          AI Projects That{" "}
+          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+            Deliver Results
+          </span>
         </h1>
 
-        <p className="text-slate-500 text-lg max-w-2xl mx-auto">
-          Real-world AI solutions delivering measurable business results.
+        <p className="text-slate-500 max-w-2xl mx-auto text-lg">
+          From automation to machine learning — we build real AI solutions that
+          create measurable business impact.
         </p>
+
+        {/* STATS */}
+        <div className="flex justify-center gap-10 mt-10 flex-wrap">
+          <div>
+            <h3 className="text-3xl font-bold text-purple-600">50+</h3>
+            <p className="text-sm text-slate-500">Projects</p>
+          </div>
+          <div>
+            <h3 className="text-3xl font-bold text-purple-600">4.9★</h3>
+            <p className="text-sm text-slate-500">Rating</p>
+          </div>
+          <div>
+            <h3 className="text-3xl font-bold text-purple-600">30%</h3>
+            <p className="text-sm text-slate-500">Avg ROI</p>
+          </div>
+        </div>
 
       </div>
 
-      {/* FILTER BUTTONS */}
-      <div className="max-w-7xl mx-auto px-6 mb-16 flex flex-wrap justify-center gap-4">
-
-        {portfolioCategories.map((c) => (
+      {/* FILTER */}
+      <div className="flex justify-center flex-wrap gap-4 mb-16 px-6">
+        {categories.map((c) => (
           <button
             key={c}
             onClick={() => setActive(c)}
-            className={`px-6 py-2 rounded-full font-semibold border transition ${
+            className={`px-6 py-2 rounded-full font-semibold ${
               active === c
-                ? "bg-purple-600 text-white border-purple-600"
-                : "bg-white text-slate-600 border-slate-300 hover:border-purple-600 hover:text-purple-600"
+                ? "bg-purple-600 text-white"
+                : "bg-slate-100 text-slate-600 hover:bg-purple-100"
             }`}
           >
             {c}
           </button>
         ))}
-
       </div>
 
-      {/* PORTFOLIO GRID */}
+      {/* PROJECTS */}
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
         {filtered.map((p, i) => (
@@ -128,54 +146,46 @@ const Portfolio = () => {
             key={p.id}
             data-aos="fade-up"
             data-aos-delay={i * 80}
-            className="group bg-white border border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl transition"
+            className="group rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition bg-white"
           >
 
-            <div className="relative overflow-hidden">
+            <img
+              src={p.image}
+              className="h-60 w-full object-cover group-hover:scale-110 transition duration-500"
+            />
 
-              <img
-                src={p.image}
-                alt={p.title}
-                className="w-full h-60 object-cover group-hover:scale-110 transition duration-500"
-              />
+            <div className="p-6">
 
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center text-center p-6">
+              <h3 className="text-xl font-bold mb-2">{p.title}</h3>
 
-                <span className="text-purple-400 text-sm font-semibold mb-2">
-                  ✨ {p.result}
-                </span>
+              <p className="text-sm text-slate-500 mb-2">
+                ❌ {p.problem}
+              </p>
 
-                <h3 className="text-white text-xl font-bold mb-2">
-                  {p.title}
-                </h3>
+              <p className="text-sm text-slate-500 mb-2">
+                💡 {p.solution}
+              </p>
 
-                <p className="text-slate-200 text-sm mb-4">
-                  {p.description}
-                </p>
+              <p className="text-sm font-semibold text-purple-600 mb-1">
+                📈 {p.result}
+              </p>
 
-                <div className="flex flex-wrap justify-center gap-2">
-                  {p.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs bg-white/20 text-white px-3 py-1 rounded-full"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+              <p className="text-xs text-green-600 mb-3">
+                🚀 {p.impact}
+              </p>
 
+              <div className="flex flex-wrap gap-2 mb-4">
+                {p.tags.map((t) => (
+                  <span
+                    key={t}
+                    className="text-xs bg-purple-100 text-purple-600 px-3 py-1 rounded-full"
+                  >
+                    {t}
+                  </span>
+                ))}
               </div>
 
-            </div>
-
-            <div className="p-6 flex justify-between items-center">
-
-              <div>
-                <h4 className="font-bold text-slate-900">{p.title}</h4>
-                <p className="text-sm text-slate-500">📈 {p.result}</p>
-              </div>
-
-              <span className="text-xs font-semibold text-purple-600 bg-purple-100 px-3 py-1 rounded-full">
+              <span className="text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">
                 {p.category}
               </span>
 
@@ -184,6 +194,45 @@ const Portfolio = () => {
           </div>
         ))}
 
+      </div>
+
+      {/* PROCESS */}
+      <div className="max-w-6xl mx-auto px-6 mt-32 text-center">
+        <h2 className="text-4xl font-bold mb-10">How We Deliver</h2>
+
+        <div className="grid md:grid-cols-4 gap-6">
+          <div className="p-6 bg-slate-50 rounded-xl">🔍 Discovery</div>
+          <div className="p-6 bg-slate-50 rounded-xl">📊 Strategy</div>
+          <div className="p-6 bg-slate-50 rounded-xl">⚙️ Build</div>
+          <div className="p-6 bg-slate-50 rounded-xl">🚀 Deploy</div>
+        </div>
+      </div>
+
+      {/* TESTIMONIAL */}
+      <div className="max-w-4xl mx-auto px-6 mt-32 text-center">
+        <p className="text-xl italic text-slate-600">
+          "AIxpets Labs transformed our operations with automation. We saw
+          immediate ROI within months."
+        </p>
+        <p className="mt-4 font-semibold">— Enterprise Client</p>
+      </div>
+
+      {/* CTA */}
+      <div className="max-w-4xl mx-auto px-6 mt-32 mb-24 text-center bg-gradient-to-r from-purple-500 to-pink-500 text-white py-12 rounded-3xl">
+        <h2 className="text-3xl font-bold mb-4">
+          Want Similar Results?
+        </h2>
+
+        <p className="mb-6">
+          Let’s build your next AI solution together.
+        </p>
+
+        <a
+          href="tel:+919811263046"
+          className="bg-white text-black px-8 py-3 rounded-full font-semibold"
+        >
+          📞 Start Your Project
+        </a>
       </div>
 
     </div>

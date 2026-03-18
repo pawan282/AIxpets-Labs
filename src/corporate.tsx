@@ -44,7 +44,7 @@ const corporateCourses = [
   },
 ];
 
-export default function Corporate() {
+const Corporate = () => {
   const [showForm, setShowForm] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -58,18 +58,15 @@ export default function Corporate() {
   });
 
   useEffect(() => {
-    AOS.init({ duration: 700, once: true });
+    AOS.init({ duration: 800, once: true });
     window.scrollTo(0, 0);
   }, []);
 
-  const handleChange = (e: any) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const submitForm = (e: any) => {
+  const submitForm = (e) => {
     e.preventDefault();
     setSubmitted(true);
   };
@@ -78,31 +75,57 @@ export default function Corporate() {
     <div className="bg-white pt-24">
 
       {/* HERO */}
-      <div className="max-w-6xl mx-auto px-6 text-center mb-20">
+      <div className="max-w-7xl mx-auto px-6 text-center mb-24">
 
         <span className="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest">
           Corporate Training
         </span>
 
         <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mt-6 mb-6">
-          AI Training for <span className="text-indigo-600">Your Team</span>
+          Upskill Your Team With{" "}
+          <span className="bg-gradient-to-r from-indigo-500 to-purple-500 text-transparent bg-clip-text">
+            AI Expertise
+          </span>
         </h1>
 
-        <p className="text-slate-500 text-lg max-w-2xl mx-auto">
-          Customized AI upskilling programs for organizations of all sizes.
-          On-site, virtual or hybrid training options available.
+        <p className="text-slate-500 max-w-2xl mx-auto text-lg">
+          Enterprise-grade AI training programs designed to boost productivity,
+          innovation, and real business impact.
         </p>
+
+        {/* STATS */}
+        <div className="flex justify-center gap-10 mt-10 flex-wrap">
+          <div>
+            <h3 className="text-3xl font-bold text-indigo-600">1000+</h3>
+            <p className="text-sm text-slate-500">Professionals Trained</p>
+          </div>
+          <div>
+            <h3 className="text-3xl font-bold text-indigo-600">50+</h3>
+            <p className="text-sm text-slate-500">Companies</p>
+          </div>
+          <div>
+            <h3 className="text-3xl font-bold text-indigo-600">4.8★</h3>
+            <p className="text-sm text-slate-500">Avg Rating</p>
+          </div>
+        </div>
 
         <button
           onClick={() => setShowForm(true)}
-          className="mt-10 bg-indigo-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-indigo-500 transition"
+          className="mt-10 bg-indigo-600 text-white px-10 py-4 rounded-full font-semibold hover:scale-105 transition"
         >
           Get Free Proposal
         </button>
 
       </div>
 
-      {/* PROGRAM GRID */}
+      {/* DELIVERY MODES */}
+      <div className="max-w-6xl mx-auto px-6 mb-24 grid md:grid-cols-3 gap-6 text-center">
+        <div className="p-6 bg-slate-50 rounded-2xl">🏢 On-site Training</div>
+        <div className="p-6 bg-slate-50 rounded-2xl">🌐 Virtual Sessions</div>
+        <div className="p-6 bg-slate-50 rounded-2xl">🔁 Hybrid Model</div>
+      </div>
+
+      {/* PROGRAMS */}
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
 
         {corporateCourses.map((course, i) => (
@@ -110,13 +133,10 @@ export default function Corporate() {
             key={course.id}
             data-aos="fade-up"
             data-aos-delay={i * 80}
-            className="border border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl transition"
+            className="group border border-slate-200 rounded-3xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all"
           >
 
-            <img
-              src={course.image}
-              className="w-full h-52 object-cover"
-            />
+            <img src={course.image} className="h-52 w-full object-cover" />
 
             <div className="p-6">
 
@@ -125,19 +145,17 @@ export default function Corporate() {
                 <span>{course.duration}</span>
               </div>
 
-              <h3 className="text-xl font-bold text-slate-900 mb-2">
+              <h3 className="text-xl font-bold mb-2 group-hover:text-indigo-600">
                 {course.title}
               </h3>
 
-              <p className="text-slate-500 mb-4">
-                {course.subtitle}
-              </p>
+              <p className="text-slate-500 mb-4">{course.subtitle}</p>
 
               <div className="flex flex-wrap gap-2 mb-4">
                 {course.tags.map((t) => (
                   <span
                     key={t}
-                    className="text-xs bg-slate-100 px-3 py-1 rounded-full"
+                    className="text-xs bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full"
                   >
                     {t}
                   </span>
@@ -145,7 +163,6 @@ export default function Corporate() {
               </div>
 
               <div className="flex justify-between items-center">
-
                 <span className="text-sm text-slate-500">
                   ⭐ {course.rating} ({course.reviews})
                 </span>
@@ -159,7 +176,6 @@ export default function Corporate() {
                 >
                   Get Proposal →
                 </button>
-
               </div>
 
             </div>
@@ -169,24 +185,32 @@ export default function Corporate() {
 
       </div>
 
-      {/* CTA */}
-      <div className="bg-slate-900 py-20 text-center text-white">
-
+      {/* WHY US */}
+      <div className="max-w-6xl mx-auto px-6 text-center mb-24">
         <h2 className="text-4xl font-bold mb-6">
-          Train Your Team with AI Experts
+          Why Companies Choose Us
         </h2>
 
-        <p className="text-slate-300 mb-10">
-          Custom training programs designed for real business impact.
-        </p>
+        <div className="grid md:grid-cols-3 gap-6 mt-10">
+          <div className="p-6 bg-slate-50 rounded-xl">⚡ Fast Implementation</div>
+          <div className="p-6 bg-slate-50 rounded-xl">🧠 Real-world Projects</div>
+          <div className="p-6 bg-slate-50 rounded-xl">📈 ROI-focused Training</div>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div className="max-w-4xl mx-auto px-6 mb-24 text-center bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-12 rounded-3xl shadow-xl">
+        <h2 className="text-3xl font-bold mb-4">
+          Train Your Team with AI Experts
+        </h2>
+        <p className="mb-6">Let’s build future-ready teams together.</p>
 
         <button
           onClick={() => setShowForm(true)}
-          className="bg-indigo-600 px-8 py-4 rounded-full font-semibold"
+          className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:scale-105 transition"
         >
-          Request Corporate Proposal
+          Request Proposal
         </button>
-
       </div>
 
       {/* MODAL */}
@@ -195,9 +219,8 @@ export default function Corporate() {
           className="fixed inset-0 bg-black/60 flex items-center justify-center z-50"
           onClick={() => setShowForm(false)}
         >
-
           <div
-            className="bg-white rounded-3xl p-10 w-full max-w-lg"
+            className="bg-white rounded-3xl p-8 w-full max-w-lg shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
 
@@ -209,41 +232,16 @@ export default function Corporate() {
 
                 <form onSubmit={submitForm} className="space-y-4">
 
-                  <input
-                    type="text"
-                    name="companyName"
-                    placeholder="Company Name"
-                    value={form.companyName}
-                    onChange={handleChange}
-                    className="w-full border border-slate-300 px-4 py-3 rounded-xl"
-                  />
-
-                  <input
-                    type="text"
-                    name="contactName"
-                    placeholder="Contact Person"
-                    value={form.contactName}
-                    onChange={handleChange}
-                    className="w-full border border-slate-300 px-4 py-3 rounded-xl"
-                  />
-
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={form.email}
-                    onChange={handleChange}
-                    className="w-full border border-slate-300 px-4 py-3 rounded-xl"
-                  />
-
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone"
-                    value={form.phone}
-                    onChange={handleChange}
-                    className="w-full border border-slate-300 px-4 py-3 rounded-xl"
-                  />
+                  {["companyName","contactName","email","phone"].map((field) => (
+                    <input
+                      key={field}
+                      name={field}
+                      placeholder={field}
+                      value={form[field]}
+                      onChange={handleChange}
+                      className="w-full border border-slate-300 px-4 py-3 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                    />
+                  ))}
 
                   <select
                     name="teamSize"
@@ -260,7 +258,7 @@ export default function Corporate() {
 
                   <button
                     type="submit"
-                    className="w-full bg-indigo-600 text-white py-3 rounded-full font-semibold"
+                    className="w-full bg-indigo-600 text-white py-3 rounded-full font-semibold hover:bg-indigo-500"
                   >
                     Submit Enquiry
                   </button>
@@ -268,33 +266,28 @@ export default function Corporate() {
                 </form>
               </>
             ) : (
-
               <div className="text-center">
-
                 <h2 className="text-2xl font-bold text-green-600 mb-4">
                   Enquiry Submitted 🎉
                 </h2>
-
                 <p className="text-slate-500 mb-6">
                   Our team will contact you within 24 hours.
                 </p>
-
                 <button
                   onClick={() => setShowForm(false)}
                   className="bg-indigo-600 text-white px-6 py-3 rounded-full"
                 >
                   Close
                 </button>
-
               </div>
-
             )}
 
           </div>
-
         </div>
       )}
 
     </div>
   );
-}
+};
+
+export default Corporate;
