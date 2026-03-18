@@ -17,14 +17,29 @@ export default function AboutPage() {
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
 
         {/* BG IMAGE + OVERLAY */}
-        <div className="absolute inset-0">
-          <img
-            src="https://www.shutterstock.com/image-photo/futuristic-poster-header-background-ai-600nw-2700672289.jpg"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/70"></div>
-        </div>
+       <div className="absolute inset-0">
 
+ <div className="absolute inset-0 overflow-hidden">
+
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    preload="auto"
+    className="w-full h-full object-cover"
+  >
+    <source src="/video/yxdnwa81sxrmw0cwzzz8smvt9c_result_.mp4" type="video/mp4" />
+  </video>
+
+  {/* DARK OVERLAY */}
+  <div className="absolute inset-0 bg-black/60"></div>
+
+</div>
+
+  <div className="absolute inset-0 bg-black/70"></div>
+
+</div>
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
 
           <span className="inline-block px-5 py-2 text-[10px] font-bold uppercase tracking-[0.2em] bg-white/10 border border-white/20 text-white rounded-full mb-8 backdrop-blur">
@@ -39,14 +54,12 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-lg text-slate-200 max-w-2xl mx-auto mb-10">
-            AIxpets Labs Private Limited is an artificial intelligence innovation
-            company focused on enterprise AI transformation, automation systems,
-            and future-ready workforce development.
+            We empower global institutions to harness the transformative power of AI through strategic implementation, high-fidelity education, and resilient autonomous systems.
           </p>
 
           <div className="flex justify-center gap-5 flex-wrap">
             <button className="px-8 py-3 bg-orange-500 text-white rounded-xl font-semibold hover:scale-105 transition">
-              Contact Team
+              CONSULTATION
             </button>
             <button className="px-8 py-3 border border-white/30 text-white rounded-xl font-semibold hover:bg-white/10 transition">
               Our Vision
@@ -58,8 +71,108 @@ export default function AboutPage() {
 
 
       {/* WHO WE ARE */}
+      <section className="py-22 bg-slate-50">
+  <div className="max-w-7xl mx-auto px-6">
+
+    <div className="grid lg:grid-cols-12 gap-12 items-start">
+
+      {/* LEFT CONTENT */}
+      <div className="lg:col-span-7">
+        <h2 className="text-4xl font-bold text-slate-900 mb-6">
+  Who <span className="text-orange-500">We</span> Are
+</h2>
+
+        <div className="space-y-3 text-slate-600 text-lg leading-relaxed max-w-2xl">
+          <p>
+            Founded at the intersection of technological disruption and industrial necessity,
+            AIxpets Labs is an elite research and implementation firm. We don’t just anticipate
+            the future—we engineer the workflows that define it.
+          </p>
+
+          <p>
+            Our multidisciplinary team operates at the cutting edge of Generative AI and
+            autonomous systems to deliver scalable, real-world impact for global partners.
+          </p>
+        </div>
+      </div>
+
+      {/* RIGHT CARDS */}
+      <div className="lg:col-span-5 space-y-6">
+
+        {/* MISSION */}
+        <div className="p-8 rounded-3xl bg-white border border-slate-200  shadow-sm hover:shadow-xl transition">
+          <div className="text-orange-500  colour-orange-500 text-3xl mb-4">🎯</div>
+          <h3 className="text-2xl  font-semibold mb-3">
+            Our Mission
+          </h3>
+          <p className="text-sm text-slate-500 leading-relaxed">
+            To democratize access to advanced intelligence and amplify human
+            potential through seamless AI integration across the enterprise stack.
+          </p>
+        </div>
+
+        {/* VISION */}
+        <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition">
+          <div className="text-purple-500 text-3xl mb-4">👁️</div>
+          <h3 className="text-xl font-semibold mb-3">
+            Our Vision
+          </h3>
+          <p className="text-sm text-slate-500 leading-relaxed">
+            To become the global cornerstone of the AI era—where every organization
+            operates at peak intelligence and efficiency.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+{/* IMPACT STATS */}
+<section className="py-20 bg-white border-y border-slate-100">
+  <div className="max-w-7xl mx-auto px-6">
+
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+
+      {[
+        { value: "10K+", label: "Students Trained", width: "85%" },
+        { value: "50+", label: "Global Workshops", width: "70%" },
+        { value: "20+", label: "Automations Live", width: "92%" },
+        { value: "15+", label: "Strategic Partners", width: "60%" },
+      ].map((item, i) => (
+        <div key={i} className="space-y-4">
+
+          {/* PROGRESS LINE */}
+          <div className="h-[2px] w-full bg-slate-100 rounded-full overflow-hidden">
+            <div
+  className="h-full bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 rounded-full"
+  style={{ width: item.width }}
+></div>
+          </div>
+
+          {/* NUMBER */}
+          <h3 className="relative inline-block text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+  <span className="relative z-10">{item.value}</span>
+
+  {/* GRADIENT BG */}
+  <span className="absolute inset-0 bg-gradient-to-r  rounded-xl blur-sm"></span>
+</h3>
+
+          {/* LABEL */}
+          <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400 font-semibold">
+            {item.label}
+          </p>
+
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+</section>
      {/* STRATEGIC DOMAINS */}
-<section className="relative py-20 text-black overflow-hidden">
+<section className="relative py-28 text-black overflow-hidden">
 
   {/* BG IMAGE */}
   <div className="absolute inset-0">
@@ -78,7 +191,7 @@ export default function AboutPage() {
         Strategic Domains
       </h2>
       <p className="text-slate-600 text-xl tracking-widest uppercase">
-        The pillars of our technological stack
+       
       </p>
     </div>
 
@@ -296,50 +409,20 @@ export default function AboutPage() {
 
         {/* RIGHT GRID */}
        {/* RIGHT CIRCLE SYSTEM */}
-<div className="flex justify-center items-center relative w-full h-[400px]">
+{/* RIGHT SIDE VIDEO */}
+<div className="relative w-full h-[400px] rounded-[30px] overflow-hidden border border-white/10 shadow-xl">
 
-  {/* GLOW */}
-<div className="absolute w-[380px] h-[380px] rounded-full bg-cyan-400/20 blur-3xl animate-pulse"></div>
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="w-full h-full object-cover"
+  >
+    <source src="/video/ai.mp4" type="video/mp4" />
+  </video>
 
-  {/* ROTATING RING () */}
- {/* ORBIT SYSTEM */}
-<div className="absolute w-[320px] h-[320px] border border-cyan-300/20 rounded-full animate-spin [animation-duration:20s]">
-  <div className="absolute w-2 h-2 bg-cyan-300 rounded-full -top-1 left-1/2 -translate-x-1/2 shadow-[0_0_10px_#22d3ee]"></div>
-</div>
-
-<div className="absolute w-[260px] h-[260px] border border-cyan-300/30 rounded-full animate-spin [animation-duration:14s]">
-  <div className="absolute w-2 h-2 bg-cyan-300 rounded-full -top-1 left-1/2 -translate-x-1/2 shadow-[0_0_10px_#22d3ee]"></div>
-</div>
-
-<div className="absolute w-[200px] h-[200px] border border-cyan-300/40 rounded-full animate-spin [animation-duration:10s]">
-  <div className="absolute w-2 h-2 bg-cyan-300 rounded-full -top-1 left-1/2 -translate-x-1/2 shadow-[0_0_10px_#22d3ee]"></div>
-</div>
-
-  {/* MIDDLE RING */}
- 
-
-  {/* CENTER */}
-  <div className="w-[140px] h-[140px] rounded-full bg-cyan-500/30 backdrop-blur-xl border border-cyan-300/40 flex flex-col items-center justify-center shadow-[0_0_60px_rgba(34,211,238,0.6)]">
-    <p className="text-cyan-300 font-semibold">AIxperts</p>
-    <p className="text-xs text-slate-300">Future Lab</p>
-  </div>
-
-  {/* LABELS */}
-  <div className="absolute top-4 right-10 text-xs px-3 py-1 rounded-full border border-cyan-300/40 bg-white/5 backdrop-blur">
-    Development
-  </div>
-
-  <div className="absolute left-6 top-1/2 text-xs px-3 py-1 rounded-full border border-cyan-300/40 bg-white/5 backdrop-blur">
-    Growth
-  </div>
-
-  <div className="absolute right-4 top-1/2 text-xs px-3 py-1 rounded-full border border-cyan-300/40 bg-white/5 backdrop-blur">
-    AI Systems
-  </div>
-
-  <div className="absolute bottom-4 text-xs px-3 py-1 rounded-full border border-cyan-300/40 bg-white/5 backdrop-blur">
-    Compliance
-  </div>
+  <div className="absolute inset-0 bg-black/30"></div>
 
 </div>
 
@@ -381,7 +464,7 @@ export default function AboutPage() {
           />
 
           <TeamRowCard
-            name="Dr. Harshu Bharti"
+            name=" Harshu Bharti"
             role="Co-founder & CTO"
             img="https://aixpertslabs.com/assets/Harshu-67b2905b.jpeg"
           />
@@ -396,20 +479,47 @@ export default function AboutPage() {
       </div>
     </section>
       {/* CTA */}
-      <section className="py-20 text-center bg-white text-white">
-        <h2 className="text-4xl font-bold mb-4">
-          Join the AI Transformation
+      {/* PREMIUM CTA */}
+<section className="py-32 bg-white">
+  <div className="max-w-[1200px] mx-auto px-6">
+
+    <div className="relative overflow-hidden rounded-[3rem] bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 p-16 md:p-24 text-center shadow-2xl">
+
+      {/* LIGHT GLOW */}
+      <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-white/10 blur-3xl"></div>
+
+      <div className="relative z-10 max-w-3xl mx-auto">
+
+        {/* HEADING */}
+        <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
+          Architect your{" "}
+          <span className="text-white/80">AI future</span> today.
         </h2>
 
-        <p className="text-slate-400 mb-8">
-          Partner with AIxpets Labs to build intelligent systems.
+        {/* SUBTEXT */}
+        <p className="text-white/90 text-lg md:text-xl mb-12">
+          Join the elite institutions leading the autonomous revolution with AIxpets Labs.
         </p>
 
-        <button className="px-10 py-4 bg-orange-500 rounded-xl font-semibold hover:scale-105 transition">
-          Contact Our Team
-        </button>
-      </section>
+        {/* BUTTONS */}
+        <div className="flex flex-col sm:flex-row justify-center gap-6">
 
+          <button className="px-10 py-4 bg-white text-black rounded-2xl font-semibold hover:scale-105 transition shadow-xl">
+            Book Consultation
+          </button>
+
+          <button className="px-10 py-4 border border-white/30 text-white rounded-2xl font-semibold hover:bg-white/10 transition">
+            Contact Strategy
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
     </div>
   )
 }

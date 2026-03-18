@@ -67,8 +67,8 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="bg-white pt-24">
-
+    <div className="bg-white pt-21 pb-32">
+    
       {/* HERO */}
 {/* HERO */}
 <div className="relative bg-slate-950 overflow-hidden">
@@ -76,25 +76,24 @@ const Services = () => {
   {/* GRADIENT GLOW */}
   <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-orange-500/20 via-pink-500/20 to-purple-500/20 blur-3xl opacity-50"></div>
 
-  <div className="relative max-w-7xl mx-auto px-6 py-32 text-center">
+  <div className="relative max-w-7xl mx-auto px-6 py-20 pb-30 text-center">
 
     {/* TAG */}
-    <span className="inline-block bg-white/10 text-orange-400 border border-white/20 text-xs font-semibold px-5 py-2 rounded-full backdrop-blur-md mb-6 uppercase tracking-widest">
+    <span className="inline-block bg-white/10 text-orange-500 border border-white/20 text-xs font-semibold px-5 py-5 rounded-full backdrop-blur-md mb-6 uppercase tracking-widest">
       Our Services
     </span>
 
     {/* HEADING */}
     <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
       Transform Your Business With{" "}
-      <span className="bg-gradient-to-r from-orange-400 via-pink-500 to-purple-500 text-transparent bg-clip-text">
+      <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 text-transparent bg-clip-text">
         AI Solutions
       </span>
     </h1>
 
     {/* SUBTEXT */}
-    <p className="text-slate-400 max-w-2xl mx-auto text-lg mb-10">
-      We design, build, and deploy AI systems that automate workflows,
-      enhance decision-making, and create measurable business impact.
+    <p className="text-slate-300 max-w-2xl mx-auto text-lg mb-10">
+     We architect high-performance autonomous agents and custom LLM infrastructure for the world's most ambitious enterprises.
     </p>
 
     {/* CTA */}
@@ -102,44 +101,136 @@ const Services = () => {
 
       <a
         href="tel:+919811263046"
-        className="px-8 py-3 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold shadow-lg hover:scale-105 transition"
+        className="px-6 py-6 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold shadow-lg hover:scale-105 transition"
       >
-        🚀 Get Started
+        🚀 Start Your Roadmap
       </a>
 
       <a
         href="#services"
-        className="px-8 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition"
+        className="px-8 py-6 rounded-full border border-white/20 text-white hover:bg-white/10 transition"
       >
-        Explore Services
+        View Solutions
       </a>
 
     </div>
 
     {/* STATS */}
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+    {/* TRANSFORMATION STATS (PREMIUM STRIP) */}
+<div className="max-w-7xl mx-auto mt-16 border-y border-white/10">
 
-      {[
-        { value: "50+", label: "Projects Delivered" },
-        { value: "10+", label: "Industries" },
-        { value: "100%", label: "Client Satisfaction" },
-      ].map((stat, i) => (
-        <div
-          key={i}
-          className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl py-6 px-4 text-center hover:scale-105 transition"
-        >
-          <h3 className="text-3xl font-bold text-white mb-1">
-            {stat.value}
-          </h3>
-          <p className="text-slate-400 text-sm">
-            {stat.label}
-          </p>
-        </div>
-      ))}
+  <div className="grid grid-cols-1 md:grid-cols-3">
 
+    {/* ITEM 1 */}
+    <div className="p-10 border-r border-white/10 last:border-r-0 text-center">
+      <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-4">
+        Projects Delivered
+      </p>
+      <div className="flex items-baseline justify-center gap-2">
+        <p className="text-4xl font-bold text-white">100+</p>
+      </div>
+    </div>
+
+    {/* ITEM 2 */}
+    <div className="p-10 border-r border-white/10 last:border-r-0 text-center">
+      <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-4">
+        Industries
+      </p>
+      <div className="flex items-baseline justify-center gap-2">
+        <p className="text-4xl font-bold text-white">50+</p>
+      </div>
+    </div>
+
+    {/* ITEM 3 */}
+    <div className="p-10 text-center">
+      <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-4">
+        Client Satisfaction
+      </p>
+      <div className="flex items-baseline justify-center gap-2">
+        <p className="text-4xl font-bold text-white">100%</p>
+      </div>
     </div>
 
   </div>
+
+</div>
+
+  </div>
+</div>
+{/* ROADMAP SECTION */}
+<div className="max-w-7xl mx-auto px-6 mt-32">
+
+  {/* HEADING */}
+  <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-16">
+    
+    <div className="max-w-xl">
+      <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+        The AI Transformation Roadmap
+      </h2>
+      <p className="text-slate-500 text-lg leading-relaxed">
+        A systematic approach to transitioning from legacy infrastructure 
+        to fully autonomous enterprise operations.
+      </p>
+    </div>
+
+    <button className="text-sm font-semibold text-slate-700 flex items-center gap-2 hover:opacity-70 transition">
+      Download Methodology →
+    </button>
+
+  </div>
+
+  {/* GRID */}
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    {[
+      {
+        step: "01",
+        title: "Strategic Audit",
+        desc: "Identifying high-impact opportunities within existing data architecture.",
+      },
+      {
+        step: "02",
+        title: "Infrastructure",
+        desc: "Secure, scalable vector databases and enterprise-grade LLM pipelines.",
+      },
+      {
+        step: "03",
+        title: "Custom Training",
+        desc: "Fine-tuning models on proprietary datasets with RAG implementation.",
+      },
+      {
+        step: "04",
+        title: "Autonomous Scale",
+        desc: "Multi-agent systems orchestrating complex workflows.",
+      },
+    ].map((item, i) => (
+      <div
+        key={i}
+        data-aos="fade-up"
+        data-aos-delay={i * 100}
+        className="p-8 bg-white border border-slate-200 rounded-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+      >
+
+        {/* STEP */}
+        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-6">
+          Phase {item.step}
+        </p>
+
+        {/* TITLE */}
+        <h3 className="text-lg font-bold text-slate-900 mb-3">
+          {item.title}
+        </h3>
+
+        {/* DESC */}
+        <p className="text-sm text-slate-500 leading-relaxed">
+          {item.desc}
+        </p>
+
+      </div>
+    ))}
+
+  </div>
+
 </div>
 
       {/* SERVICES */}
@@ -160,7 +251,7 @@ const Services = () => {
 
             <p className="text-slate-500 mb-4">{service.description}</p>
 
-            <ul className="text-sm text-slate-400 mb-6 space-y-1">
+            <ul className="text-sm text-slate-400 mb-6 space-y-4">
               {service.points.map((p, index) => (
                 <li key={index}>✔ {p}</li>
               ))}

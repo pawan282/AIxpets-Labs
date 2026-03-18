@@ -85,41 +85,94 @@ const Portfolio = () => {
     <div className="bg-white pt-24">
 
       {/* HERO */}
-      <div className="max-w-7xl mx-auto px-6 text-center mb-24">
+      {/* HERO */}
+{/* HERO */}
+<section className="relative h-screen bg-slate-950 overflow-hidden flex items-center justify-center">
 
-        <span className="bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-xs font-bold uppercase">
-          Our Work
-        </span>
+  {/* VIDEO BACKGROUND */}
+  <div className="absolute inset-0">
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="w-full h-full object-cover"
+    >
+      <source src="/video/bh2xv3pb2nrmt0cwzzya1w323r_result_.mp4" type="video/mp4" />
+    </video>
 
-        <h1 className="text-5xl md:text-6xl font-bold mt-6 mb-6">
-          AI Projects That{" "}
-          <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-            Deliver Results
-          </span>
-        </h1>
+    {/* DARK OVERLAY */}
+    <div className="absolute inset-0 bg-black/70"></div>
+  </div>
 
-        <p className="text-slate-500 max-w-2xl mx-auto text-lg">
-          From automation to machine learning — we build real AI solutions that
-          create measurable business impact.
-        </p>
+  {/* GRADIENT GLOW */}
+  <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-orange-500/20 via-pink-500/20 to-purple-500/20 blur-3xl opacity-50"></div>
 
-        {/* STATS */}
-        <div className="flex justify-center gap-10 mt-10 flex-wrap">
-          <div>
-            <h3 className="text-3xl font-bold text-purple-600">50+</h3>
-            <p className="text-sm text-slate-500">Projects</p>
-          </div>
-          <div>
-            <h3 className="text-3xl font-bold text-purple-600">4.9★</h3>
-            <p className="text-sm text-slate-500">Rating</p>
-          </div>
-          <div>
-            <h3 className="text-3xl font-bold text-purple-600">30%</h3>
-            <p className="text-sm text-slate-500">Avg ROI</p>
-          </div>
+  {/* CONTENT */}
+  <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+
+    {/* TAG */}
+    <span className="inline-block bg-white/10 text-orange-500 border border-white/20 text-xs font-semibold px-5 py-5 rounded-full backdrop-blur-md mb-6 uppercase tracking-widest">
+      Our Portfolio
+    </span>
+
+    {/* HEADING */}
+    <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+      Showcasing Our{" "}
+      <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 text-transparent bg-clip-text">
+        AI Projects
+      </span>
+    </h1>
+
+    {/* SUBTEXT */}
+    <p className="text-slate-300 max-w-2xl mx-auto text-lg mb-10">
+      Explore real-world AI solutions we’ve built — from automation systems to intelligent platforms driving business transformation.
+    </p>
+
+    {/* CTA */}
+    <div className="flex flex-col sm:flex-row justify-center gap-6 mb-16">
+
+      <a
+        href="#projects"
+        className="px-8 py-3 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold shadow-lg hover:scale-105 transition"
+      >
+        🚀 View Projects
+      </a>
+
+      <a
+        href="/contact"
+        className="px-8 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition"
+      >
+        Start Your Project
+      </a>
+
+    </div>
+
+    {/* STATS */}
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+      {[
+        { value: "50+", label: "Projects Completed" },
+        { value: "20+", label: "AI Solutions" },
+        { value: "100%", label: "Client Satisfaction" },
+      ].map((stat, i) => (
+        <div
+          key={i}
+          className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl py-6 px-4 text-center hover:scale-105 transition"
+        >
+          <h3 className="text-3xl font-bold text-white mb-1">
+            {stat.value}
+          </h3>
+          <p className="text-slate-400 text-sm">
+            {stat.label}
+          </p>
         </div>
+      ))}
 
-      </div>
+    </div>
+
+  </div>
+</section>
 
       {/* FILTER */}
       <div className="flex justify-center flex-wrap gap-4 mb-16 px-6">
