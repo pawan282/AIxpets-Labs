@@ -87,37 +87,43 @@ const Portfolio = () => {
       {/* HERO */}
       {/* HERO */}
 {/* HERO */}
-<section className="relative h-screen bg-slate-950 overflow-hidden flex items-center justify-center">
+{/* HERO */}
+<div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
 
   {/* VIDEO BACKGROUND */}
-  <div className="absolute inset-0">
-    <video
-      autoPlay
-      loop
-      muted
-      playsInline
-      className="w-full h-full object-cover"
-    >
-      <source src="/video/bh2xv3pb2nrmt0cwzzya1w323r_result_.mp4" type="video/mp4" />
-    </video>
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    preload="auto"
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/video/bh2xv3pb2nrmt0cwzzya1w323r_result_.mp4" type="video/mp4" />
+  </video>
 
-    {/* DARK OVERLAY */}
-    <div className="absolute inset-0 bg-black/70"></div>
-  </div>
+  {/* DARK OVERLAY */}
+  <div className="absolute inset-0 bg-black/70"></div>
 
   {/* GRADIENT GLOW */}
-  <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-orange-500/20 via-pink-500/20 to-purple-500/20 blur-3xl opacity-50"></div>
+  <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[800px] 
+  bg-gradient-to-r from-orange-500/20 via-pink-500/20 to-purple-500/20 blur-3xl opacity-50"></div>
 
   {/* CONTENT */}
-  <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+  <div className="relative z-10 max-w-7xl mx-auto px-6 py-6 text-center">
 
-    {/* TAG */}
-    <span className="inline-block bg-white/10 text-orange-500 border border-white/20 text-xs font-semibold px-5 py-5 rounded-full backdrop-blur-md mb-6 uppercase tracking-widest">
-      Our Portfolio
+    {/* TAG (same as services) */}
+    <span className="inline-block 
+    bg-white/10 border border-white/20 
+    text-orange-400 text-sm md:text-base font-extrabold 
+    px-8 py-3 rounded-full backdrop-blur-md 
+    uppercase tracking-[0.50em] 
+    mb-8 shadow-lg">
+      OUR PORTFOLIO
     </span>
 
-    {/* HEADING */}
-    <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+    {/* HEADING (bigger like services) */}
+    <h1 className="text-4xl md:text-8xl font-bold text-white leading-tight mb-6">
       Showcasing Our{" "}
       <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 text-transparent bg-clip-text">
         AI Projects
@@ -126,7 +132,8 @@ const Portfolio = () => {
 
     {/* SUBTEXT */}
     <p className="text-slate-300 max-w-2xl mx-auto text-lg mb-10">
-      Explore real-world AI solutions we’ve built — from automation systems to intelligent platforms driving business transformation.
+      Explore real-world AI solutions we’ve built — from automation systems 
+      to intelligent platforms driving business transformation.
     </p>
 
     {/* CTA */}
@@ -134,48 +141,55 @@ const Portfolio = () => {
 
       <a
         href="#projects"
-        className="px-8 py-3 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold shadow-lg hover:scale-105 transition"
+        className="px-8 py-4 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold shadow-lg hover:scale-105 transition"
       >
         🚀 View Projects
       </a>
 
       <a
         href="/contact"
-        className="px-8 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition"
+        className="px-8 py-4 rounded-full border border-white/20 text-white hover:bg-white/10 transition"
       >
         Start Your Project
       </a>
 
     </div>
 
-    {/* STATS */}
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+    {/* STATS (same style as services strip) */}
+    <div className="max-w-5xl mx-auto border-y border-white/10">
 
-      {[
-        { value: "50+", label: "Projects Completed" },
-        { value: "20+", label: "AI Solutions" },
-        { value: "100%", label: "Client Satisfaction" },
-      ].map((stat, i) => (
-        <div
-          key={i}
-          className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl py-6 px-4 text-center hover:scale-105 transition"
-        >
-          <h3 className="text-3xl font-bold text-white mb-1">
-            {stat.value}
-          </h3>
-          <p className="text-slate-400 text-sm">
-            {stat.label}
+      <div className="grid grid-cols-1 md:grid-cols-3">
+
+        <div className="p-8 border-r border-white/10 text-center">
+          <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-2">
+            Projects Completed
           </p>
+          <p className="text-3xl font-bold text-white">50+</p>
         </div>
-      ))}
+
+        <div className="p-8 border-r border-white/10 text-center">
+          <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-2">
+            AI Solutions
+          </p>
+          <p className="text-3xl font-bold text-white">20+</p>
+        </div>
+
+        <div className="p-8 text-center">
+          <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-2">
+            Client Satisfaction
+          </p>
+          <p className="text-3xl font-bold text-white">100%</p>
+        </div>
+
+      </div>
 
     </div>
 
   </div>
-</section>
+</div>
 
       {/* FILTER */}
-      <div className="flex justify-center flex-wrap gap-4 mb-16 px-6">
+      <div className="flex justify-center flex-wrap gap-4 mt-20 mb-16 px-6">
         {categories.map((c) => (
           <button
             key={c}
