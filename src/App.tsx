@@ -12,6 +12,7 @@ import bharatx from "./assets/partners/bhartex.png";
 import infratech from "./assets/partners/infratech.png";
 import Homeasy from "./assets/partners/homeasy.png";
 import aihero from "./assets/videos/aihero.mp4";
+import Consultation from "./consultation";
 
 import { 
   ArrowRight, 
@@ -75,6 +76,8 @@ const Navbar = () => {
               Services
             </Link>
 
+          
+
             {/* Academic Dropdown */}
               <div className="relative group">
 
@@ -115,6 +118,11 @@ const Navbar = () => {
               Contact
             </Link>
 
+            <Link to="/consultation" className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-blue-500 hover:scale-105 transition-all shadow-lg shadow-blue-100">
+              Free Consultation
+          </Link>
+
+
           </div>
 
           {/* Right Side Buttons */}
@@ -126,10 +134,6 @@ const Navbar = () => {
 
             <button className="text-sm font-bold text-slate-900 flex items-center gap-2 hover:text-blue-600 transition-colors">
               <User className="w-5 h-5" />
-            </button>
-
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-blue-500 hover:scale-105 transition-all shadow-lg shadow-blue-100">
-              Free Consultation
             </button>
 
           </div>
@@ -778,7 +782,7 @@ const Footer = () => {
               <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center">
                 <Zap className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-slate-900">AIxpets Labs</span>
+              <span className="text-2xl font-bold text-slate-900">AIxperts Labs</span>
             </div>
             <p className="text-slate-500 leading-relaxed mb-10">
               The global standard for AI innovation, education, and enterprise transformation.
@@ -867,6 +871,7 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/corporate" element={<Corporate />} />
             <Route path="/institute" element={<Institute />} />
+            <Route path="/consultation" element={<Consultation />} />
           </Routes>
         </main>
         

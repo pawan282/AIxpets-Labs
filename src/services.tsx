@@ -8,7 +8,7 @@ const servicesData = [
     title: "AI Consulting",
     description:
       "Strategic AI consulting to identify opportunities, reduce costs, and accelerate growth using intelligent systems.",
-    icon: "🤖",
+
     points: ["AI Roadmap", "Use-case Discovery", "ROI Planning"],
   },
   {
@@ -16,7 +16,7 @@ const servicesData = [
     title: "AI Automation",
     description:
       "Automate repetitive workflows with AI-driven systems that increase efficiency and reduce human effort.",
-    icon: "⚙️",
+   
     points: ["Process Automation", "RPA + AI", "Workflow Optimization"],
   },
   {
@@ -24,7 +24,7 @@ const servicesData = [
     title: "Custom AI Development",
     description:
       "Custom-built AI solutions, chatbots, and LLM-based products tailored to your business.",
-    icon: "🧠",
+    
     points: ["Custom Models", "LLM Integration", "AI SaaS"],
   },
   {
@@ -32,7 +32,7 @@ const servicesData = [
     title: "Machine Learning",
     description:
       "Advanced ML systems that analyze data, predict trends, and improve business decisions.",
-    icon: "📊",
+    
     points: ["Prediction Models", "Data Analysis", "Forecasting"],
   },
   {
@@ -40,7 +40,7 @@ const servicesData = [
     title: "AI Chatbots",
     description:
       "Smart AI chatbots for customer support, lead generation, and automation.",
-    icon: "💬",
+    
     points: ["WhatsApp Bots", "Website Bots", "Voice AI"],
   },
   {
@@ -48,7 +48,7 @@ const servicesData = [
     title: "AI Training",
     description:
       "Professional AI training programs for students, developers, and enterprises.",
-    icon: "🎓",
+   
     points: ["Workshops", "Corporate Training", "Hands-on Projects"],
   },
 ];
@@ -71,20 +71,43 @@ const Services = () => {
     
       {/* HERO */}
 {/* HERO */}
-<div className="relative bg-slate-950 overflow-hidden">
+{/* HERO */}
+<div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
 
-  {/* GRADIENT GLOW */}
-  <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-orange-500/20 via-pink-500/20 to-purple-500/20 blur-3xl opacity-50"></div>
+  {/* VIDEO BACKGROUND */}
+ <video
+  autoPlay
+  loop
+  muted
+  playsInline
+  preload="auto"
+  className="absolute inset-0 w-full h-full object-cover"
+>
+  <source src="/video/service.mp4" type="video/mp4" />
+</video>
 
-  <div className="relative max-w-7xl mx-auto px-6 py-20 pb-30 text-center">
+  {/* DARK OVERLAY */}
+  <div className="absolute inset-0 bg-black/70"></div>
+
+  {/* GRADIENT GLOW (optional premium) */}
+  <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[800px] 
+  bg-gradient-to-r from-orange-500/20 via-pink-500/20 to-purple-500/20 blur-3xl opacity-50"></div>
+
+  {/* CONTENT */}
+  <div className="relative z-10 max-w-7xl mx-auto px-6 py-6 text-center">
 
     {/* TAG */}
-    <span className="inline-block bg-white/10 text-orange-500 border border-white/20 text-xs font-semibold px-5 py-5 rounded-full backdrop-blur-md mb-6 uppercase tracking-widest">
-      Our Services
-    </span>
+   <span className="inline-block 
+bg-white/10 border border-white/20 
+text-orange-400 text-sm md:text-base font-extrabold 
+px-8 py-3 rounded-full backdrop-blur-md 
+uppercase tracking-[0.50em] 
+mb-8 shadow-lg">
+  OUR SERVICES
+</span>
 
     {/* HEADING */}
-    <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+    <h1 className="text-4xl md:text-8xl font-bold text-white leading-tight mb-6">
       Transform Your Business With{" "}
       <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 text-transparent bg-clip-text">
         AI Solutions
@@ -93,7 +116,7 @@ const Services = () => {
 
     {/* SUBTEXT */}
     <p className="text-slate-300 max-w-2xl mx-auto text-lg mb-10">
-     We architect high-performance autonomous agents and custom LLM infrastructure for the world's most ambitious enterprises.
+      We architect high-performance autonomous agents and custom LLM infrastructure for the world's most ambitious enterprises.
     </p>
 
     {/* CTA */}
@@ -101,14 +124,14 @@ const Services = () => {
 
       <a
         href="tel:+919811263046"
-        className="px-6 py-6 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold shadow-lg hover:scale-105 transition"
+        className="px-8 py-4 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold shadow-lg hover:scale-105 transition"
       >
         🚀 Start Your Roadmap
       </a>
 
       <a
         href="#services"
-        className="px-8 py-6 rounded-full border border-white/20 text-white hover:bg-white/10 transition"
+        className="px-8 py-4 rounded-full border border-white/20 text-white hover:bg-white/10 transition"
       >
         View Solutions
       </a>
@@ -116,44 +139,34 @@ const Services = () => {
     </div>
 
     {/* STATS */}
-    {/* TRANSFORMATION STATS (PREMIUM STRIP) */}
-<div className="max-w-7xl mx-auto mt-16 border-y border-white/10">
+    <div className="max-w-5xl mx-auto border-y border-white/10">
 
-  <div className="grid grid-cols-1 md:grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-3">
 
-    {/* ITEM 1 */}
-    <div className="p-10 border-r border-white/10 last:border-r-0 text-center">
-      <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-4">
-        Projects Delivered
-      </p>
-      <div className="flex items-baseline justify-center gap-2">
-        <p className="text-4xl font-bold text-white">100+</p>
+        <div className="p-8 border-r border-white/10 text-center">
+          <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-2">
+            Projects Delivered
+          </p>
+          <p className="text-3xl font-bold text-white">100+</p>
+        </div>
+
+        <div className="p-8 border-r border-white/10 text-center">
+          <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-2">
+            Industries
+          </p>
+          <p className="text-3xl font-bold text-white">50+</p>
+        </div>
+
+        <div className="p-8 text-center">
+          <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-2">
+            Client Satisfaction
+          </p>
+          <p className="text-3xl font-bold text-white">100%</p>
+        </div>
+
       </div>
+
     </div>
-
-    {/* ITEM 2 */}
-    <div className="p-10 border-r border-white/10 last:border-r-0 text-center">
-      <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-4">
-        Industries
-      </p>
-      <div className="flex items-baseline justify-center gap-2">
-        <p className="text-4xl font-bold text-white">50+</p>
-      </div>
-    </div>
-
-    {/* ITEM 3 */}
-    <div className="p-10 text-center">
-      <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-4">
-        Client Satisfaction
-      </p>
-      <div className="flex items-baseline justify-center gap-2">
-        <p className="text-4xl font-bold text-white">100%</p>
-      </div>
-    </div>
-
-  </div>
-
-</div>
 
   </div>
 </div>
@@ -161,23 +174,25 @@ const Services = () => {
 <div className="max-w-7xl mx-auto px-6 mt-32">
 
   {/* HEADING */}
-  <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-16">
+  {/* HEADING */}
+<div className="text-center mb-20 max-w-3xl mx-auto">
+
+  <h2 className="text-4xl md:text-5xl font-bold leading-tight">
     
-    <div className="max-w-xl">
-      <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-        The AI Transformation Roadmap
-      </h2>
-      <p className="text-slate-500 text-lg leading-relaxed">
-        A systematic approach to transitioning from legacy infrastructure 
-        to fully autonomous enterprise operations.
-      </p>
-    </div>
+    <span className="text-black">The AI </span>
 
-    <button className="text-sm font-semibold text-slate-700 flex items-center gap-2 hover:opacity-70 transition">
-      Download Methodology →
-    </button>
+    <span className="bg-gradient-to-r from-orange-500 to-orange-500 text-transparent bg-clip-text">
+      Transformation Roadmap
+    </span>
 
-  </div>
+  </h2>
+
+  <p className="text-slate-500 text-lg mt-6 leading-relaxed">
+    A systematic approach to transitioning from legacy infrastructure 
+    to fully autonomous enterprise operations.
+  </p>
+
+</div>
 
   {/* GRID */}
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -208,11 +223,11 @@ const Services = () => {
         key={i}
         data-aos="fade-up"
         data-aos-delay={i * 100}
-        className="p-8 bg-white border border-slate-200 rounded-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+        className="p-8 rounded-2xl border border-orange-500/60 bg-gradient-to-r from-orange-500/20 via-pink-500/20 to-purple-500/20 opacity-50 hover:-translate-y-1 transition-all duration-300"
       >
 
         {/* STEP */}
-        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-6">
+        <p className="text-[10px] py-2font-bold text-slate-400 uppercase tracking-[0.2em] mb-6">
           Phase {item.step}
         </p>
 
@@ -234,48 +249,85 @@ const Services = () => {
 </div>
 
       {/* SERVICES */}
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        {servicesData.map((service, i) => (
-          <div
-            key={service.id}
-            data-aos="fade-up"
-            data-aos-delay={i * 80}
-            className="group p-8 bg-white border border-slate-200 rounded-3xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+     {/* CORE SPECIALIZATION HEADING */}
+{/* CORE SPECIALIZATION SECTION */}
+{/* CORE SPECIALIZATION SECTION */}
+{/* CORE SPECIALIZATION SECTION */}
+<div className="max-w-7xl mx-auto px-6 mt-24">
+
+  {/* HEADING */}
+  <div className="text-center mb-12">
+    <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+      <span className="text-black">Our Core </span>
+      <span className="text-orange-500">Specialization</span>
+    </h2>
+
+    <p className="text-slate-500 mt-3 max-w-xl mx-auto text-sm">
+      Cutting-edge AI services designed to transform businesses.
+    </p>
+  </div>
+
+  {/* SERVICES GRID */}
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+    {servicesData.map((service, i) => (
+      <div
+        key={service.id}
+        data-aos="fade-up"
+        data-aos-delay={i * 80}
+        className="group relative p-6 rounded-2xl border border-slate-200 overflow-hidden
+        bg-gradient-to-br from-white via-slate-50 to-blue-50
+        hover:-translate-y-2 transition-all duration-300
+        hover:shadow-[0_15px_40px_rgba(0,0,0,0.08)]"
+      >
+
+        {/* HOVER GLOW */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 
+        bg-gradient-to-br from-orange-500/10 via-transparent to-blue-500/10"></div>
+
+        {/* CONTENT */}
+        <div className="relative z-10">
+
+          {/* TITLE */}
+          <h3 className="text-lg font-semibold mb-2 group-hover:text-orange-500 transition">
+            {service.title}
+          </h3>
+
+          {/* DESC */}
+          <p className="text-sm text-slate-500 mb-3">
+            {service.description}
+          </p>
+
+          {/* POINTS */}
+          <ul className="text-xs text-slate-400 mb-4 space-y-1">
+            {service.points.map((p, index) => (
+              <li key={index}>✔ {p}</li>
+            ))}
+          </ul>
+
+          {/* CTA */}
+          <a
+            href="tel:+919811263046"
+            className="text-orange-600 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all"
           >
-            <div className="text-4xl mb-6">{service.icon}</div>
+            Get Service →
+          </a>
 
-            <h3 className="text-xl font-bold mb-3 group-hover:text-orange-600">
-              {service.title}
-            </h3>
-
-            <p className="text-slate-500 mb-4">{service.description}</p>
-
-            <ul className="text-sm text-slate-400 mb-6 space-y-4">
-              {service.points.map((p, index) => (
-                <li key={index}>✔ {p}</li>
-              ))}
-            </ul>
-
-            <a
-              href="tel:+919811263046"
-              className="text-orange-600 font-semibold flex items-center gap-2 group-hover:gap-3 transition-all"
-            >
-              Get This Service →
-            </a>
-          </div>
-        ))}
-
+        </div>
       </div>
+    ))}
 
+  </div>
+
+</div>
       {/* PROCESS */}
       
 
       {/* WHY US */}
       <div className="max-w-5xl mx-auto px-6 mt-32 text-center">
-        <h2 className="text-4xl font-bold mb-6">Why Choose AIxpets Labs?</h2>
+        <h2 className="text-4xl font-bold mb-6"></h2>
         <p className="text-slate-500 mb-10">
-          We combine deep AI expertise with real-world business understanding to deliver impactful solutions.
         </p>
 
        {/* PROCESS */}
@@ -283,8 +335,9 @@ const Services = () => {
 
   <div className="text-center mb-16">
     <h2 className="text-4xl font-bold mb-4">
-      Our Process
-    </h2>
+  <span className="text-black">Our </span>
+  <span className="text-orange-500">Process</span>
+</h2>
     <p className="text-slate-500">
       A proven approach to deliver scalable AI solutions
     </p>
@@ -318,7 +371,10 @@ const Services = () => {
         key={i}
         data-aos="fade-up"
         data-aos-delay={i * 100}
-        className="group relative bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+        className="group relative p-8 rounded-3xl border border-slate-200 overflow-hidden
+bg-gradient-to-br from-white via-orange-50 to-pink-300
+hover:-translate-y-3 transition-all duration-500
+hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
       >
 
         {/* STEP NUMBER */}
@@ -345,7 +401,7 @@ const Services = () => {
       </div>
 
       {/* CTA */}
-      <div className="max-w-4xl mx-auto px-6 mt-32 mb-24 text-center bg-gradient-to-r from-orange-500 to-pink-500 rounded-3xl py-6 text-white shadow-xl">
+      <div className="max-w-4xl mx-auto px-6 mt-32 mb-24 text-center bg-gradient-to-r from-orange-500 to-pink-500 rounded-3xl py-12 text-white shadow-xl">
 
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
           Ready to Build Your AI Solution?
