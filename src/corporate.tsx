@@ -1,293 +1,241 @@
-import React, { useEffect, useState } from "react";
+"use client";
+import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { motion } from "framer-motion";
 
-const corporateCourses = [
-  {
-    id: 1,
-    title: "AI for Business Leaders",
-    subtitle: "Strategic AI adoption for executives",
-    level: "Executive",
-    duration: "2 Days",
-    rating: 4.8,
-    reviews: 120,
-    teamSize: "5-30",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200",
-    tags: ["AI Strategy", "Automation", "Leadership"],
-  },
-  {
-    id: 2,
-    title: "Generative AI for Teams",
-    subtitle: "ChatGPT & LLM tools for productivity",
-    level: "Intermediate",
-    duration: "3 Days",
-    rating: 4.7,
-    reviews: 90,
-    teamSize: "10-50",
-    image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200",
-    tags: ["ChatGPT", "Prompt Engineering", "AI Tools"],
-  },
-  {
-    id: 3,
-    title: "Machine Learning for Engineers",
-    subtitle: "Hands-on ML training for development teams",
-    level: "Advanced",
-    duration: "5 Days",
-    rating: 4.9,
-    reviews: 150,
-    teamSize: "10-100",
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200",
-    tags: ["Python", "ML", "Deep Learning"],
-  },
-];
-
-const Corporate = () => {
-  const [showForm, setShowForm] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const [form, setForm] = useState({
-    companyName: "",
-    contactName: "",
-    email: "",
-    phone: "",
-    teamSize: "",
-    program: "",
-  });
-
+export default function Corporate() {
   useEffect(() => {
-    AOS.init({ duration: 800, once: true });
-    window.scrollTo(0, 0);
+    AOS.init({ duration: 1000, once: true });
   }, []);
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const submitForm = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
   return (
-    <div className="bg-white pt-24">
+    <div className="bg-white text-slate-900 overflow-hidden">
 
-      {/* HERO */}
-      <div className="max-w-7xl mx-auto px-6 text-center mb-24">
+      {/* ================= HERO ================= */}
+      <section className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
 
-        <span className="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest">
-          Corporate Training
-        </span>
-
-        <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mt-6 mb-6">
-          Upskill Your Team With{" "}
-          <span className="bg-gradient-to-r from-indigo-500 to-purple-500 text-transparent bg-clip-text">
-            AI Expertise
+        <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
+          <span className="px-4 py-2 bg-orange-100 text-orange-600 rounded-full text-xs font-bold">
+            AI Transformation
           </span>
-        </h1>
 
-        <p className="text-slate-500 max-w-2xl mx-auto text-lg">
-          Enterprise-grade AI training programs designed to boost productivity,
-          innovation, and real business impact.
-        </p>
+          <h1 className="text-6xl font-extrabold mt-6 leading-tight">
+            Workforce
+Transformation for the{" "}
+            <span className="text-orange-500">AI Workforce</span>
+          </h1>
 
-        {/* STATS */}
-        <div className="flex justify-center gap-10 mt-10 flex-wrap">
-          <div>
-            <h3 className="text-3xl font-bold text-indigo-600">1000+</h3>
-            <p className="text-sm text-slate-500">Professionals Trained</p>
+          <p className="text-slate-500 mt-6 text-lg max-w-xl">
+            Empower your teams with cutting-edge AI skills and automation.
+          </p>
+
+          <div className="flex gap-4 mt-8">
+            <button className="bg-orange-500 text-white px-8 py-4 rounded-full hover:scale-105 transition">
+              View Programs
+            </button>
+            <button className="border px-8 py-4 rounded-full hover:bg-slate-50">
+              Contact sales
+            </button>
           </div>
-          <div>
-            <h3 className="text-3xl font-bold text-indigo-600">50+</h3>
-            <p className="text-sm text-slate-500">Companies</p>
+        </motion.div>
+
+        <motion.div
+  initial={{ x: 100, opacity: 0 }}
+  animate={{ x: 0, opacity: 1 }}
+  className="relative rounded-3xl overflow-hidden"
+>
+
+  {/* VIDEO */}
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="w-full h-[350px] md:h-[420px] object-cover rounded-3xl"
+  >
+    <source src="/video/corporate.mp4" type="video/mp4" />
+  </video>
+
+  {/* LIGHT OVERLAY (very subtle) */}
+  <div className="absolute inset-0 bg-black/10"></div>
+
+  {/* OPTIONAL GLOW BORDER */}
+  <div className="absolute inset-0 rounded-3xl ring-1 ring-white/10"></div>
+
+</motion.div>
+      </section>
+
+      {/* ================= COUNTERS ================= */}
+      <section className="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-6 mb-24">
+        {[
+          { num: "1000+", label: "Professionals" },
+          { num: "50+", label: "Companies" },
+          { num: "95%", label: "Success Rate" },
+          { num: "4.9★", label: "Rating" },
+        ].map((item, i) => (
+          <div key={i} data-aos="fade-up" className="text-center">
+            <h3 className="text-4xl font-bold text-orange-500">{item.num}</h3>
+            <p className="text-slate-500">{item.label}</p>
           </div>
-          <div>
-            <h3 className="text-3xl font-bold text-indigo-600">4.8★</h3>
-            <p className="text-sm text-slate-500">Avg Rating</p>
+        ))}
+      </section>
+
+     {/* ================= PROCESS ================= */}
+<section className="bg-slate-50 py-24">
+  <div className="max-w-6xl mx-auto px-6 text-center">
+
+    <h2 className="text-4xl font-bold mb-16">
+      How We{" "}
+      <span className="text-orange-500">Transform Your Team</span>
+    </h2>
+
+    <div className="grid md:grid-cols-4 gap-6">
+
+      {[
+        {
+          title: "Assessment",
+          gradient: "from-blue-500 via-cyan-500 to-teal-400",
+        },
+        {
+          title: "Strategy",
+          gradient: "from-purple-500 via-pink-500 to-rose-400",
+        },
+        {
+          title: "Implementation",
+          gradient: "from-orange-500 via-red-500 to-pink-500",
+        },
+        {
+          title: "Scaling",
+          gradient: "from-green-500 via-emerald-500 to-lime-400",
+        },
+      ].map((item, i) => (
+        <motion.div
+          key={i}
+          whileHover={{ scale: 1.07, rotate: 1 }}
+          transition={{ type: "spring", stiffness: 200 }}
+          className="relative p-6 rounded-2xl text-white shadow-xl overflow-hidden cursor-pointer"
+        >
+
+          {/* 🔥 Gradient Background */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient}`}></div>
+
+          {/* ✨ Glass overlay */}
+          <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
+
+          {/* 💎 Content */}
+          <div className="relative z-10 text-center">
+
+            <div className="text-3xl font-bold mb-2 opacity-90">
+              0{i + 1}
+            </div>
+
+            <h3 className="font-semibold text-lg tracking-wide">
+              {item.title}
+            </h3>
+
           </div>
+
+        </motion.div>
+      ))}
+
+    </div>
+
+  </div>
+</section>
+
+      {/* ================= SPECIALIZATIONS ================= */}
+      <section className="max-w-7xl mx-auto px-6 py-24">
+
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-black">
+      Our <span className="text-orange-500">Specializations</span>
+          </h2>
+
+          <p className="text-slate-500 mt-6 max-w-2xl mx-auto">
+            We focus on high-impact AI transformation domains.
+          </p>
         </div>
 
-        <button
-          onClick={() => setShowForm(true)}
-          className="mt-10 bg-indigo-600 text-white px-10 py-4 rounded-full font-semibold hover:scale-105 transition"
-        >
-          Get Free Proposal
-        </button>
+        <div className="grid md:grid-cols-3 gap-8">
 
-      </div>
+          {[
+            { title: "Leadership Strategy", desc: "Executive level roadman develonment and strategic planning tor sustainableAl adoption across global teams.", icon: "📊" },
+            { title: "Workflow Automation", desc: "Practical integration of GenAl tools fordepartments ranging trom marketingand sales to operations and engineering.", icon: "⚙️" },
+            { title: "Ethical AI Governance", desc: "Robust risk management trameworksana comnllance strategles to enctresate and ethical Al deployment at scale.", icon: "🛡️" },
+          ].map((item, i) => (
+            <div key={i} className="relative p-10 rounded-2xl text-white shadow-xl overflow-hidden">
 
-      {/* DELIVERY MODES */}
-      <div className="max-w-6xl mx-auto px-6 mb-24 grid md:grid-cols-3 gap-6 text-center">
-        <div className="p-6 bg-slate-50 rounded-2xl">🏢 On-site Training</div>
-        <div className="p-6 bg-slate-50 rounded-2xl">🌐 Virtual Sessions</div>
-        <div className="p-6 bg-slate-50 rounded-2xl">🔁 Hybrid Model</div>
-      </div>
-
-      {/* PROGRAMS */}
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-
-        {corporateCourses.map((course, i) => (
-          <div
-            key={course.id}
-            data-aos="fade-up"
-            data-aos-delay={i * 80}
-            className="group border border-slate-200 rounded-3xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all"
-          >
-
-            <img src={course.image} className="h-52 w-full object-cover" />
-
-            <div className="p-6">
-
-              <div className="flex justify-between text-sm text-slate-500 mb-2">
-                <span>{course.level}</span>
-                <span>{course.duration}</span>
-              </div>
-
-              <h3 className="text-xl font-bold mb-2 group-hover:text-indigo-600">
-                {course.title}
-              </h3>
-
-              <p className="text-slate-500 mb-4">{course.subtitle}</p>
-
-              <div className="flex flex-wrap gap-2 mb-4">
-                {course.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-slate-500">
-                  ⭐ {course.rating} ({course.reviews})
-                </span>
-
-                <button
-                  onClick={() => {
-                    setShowForm(true);
-                    setForm({ ...form, program: course.title });
-                  }}
-                  className="text-indigo-600 font-semibold"
-                >
-                  Get Proposal →
-                </button>
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500 via-pink-500 to-purple-500"></div>
+              <div className="relative z-10">
+                <div className="text-3xl mb-4">{item.icon}</div>
+                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                <p>{item.desc}</p>
               </div>
 
             </div>
+          ))}
 
-          </div>
-        ))}
-
-      </div>
-
-      {/* WHY US */}
-      <div className="max-w-6xl mx-auto px-6 text-center mb-24">
-        <h2 className="text-4xl font-bold mb-6">
-          Why Companies Choose Us
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-6 mt-10">
-          <div className="p-6 bg-slate-50 rounded-xl">⚡ Fast Implementation</div>
-          <div className="p-6 bg-slate-50 rounded-xl">🧠 Real-world Projects</div>
-          <div className="p-6 bg-slate-50 rounded-xl">📈 ROI-focused Training</div>
         </div>
-      </div>
+      </section>
 
-      {/* CTA */}
-      <div className="max-w-4xl mx-auto px-6 mb-24 text-center bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-12 rounded-3xl shadow-xl">
-        <h2 className="text-3xl font-bold mb-4">
-          Train Your Team with AI Experts
-        </h2>
-        <p className="mb-6">Let’s build future-ready teams together.</p>
+      {/* ================= FEATURES ================= */}
+      <section className="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center">
 
-        <button
-          onClick={() => setShowForm(true)}
-          className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:scale-105 transition"
-        >
-          Request Proposal
-        </button>
-      </div>
+        <motion.img
+          src="https://media.licdn.com/dms/image/v2/D4E12AQFBpmtTnuNgYQ/article-cover_image-shrink_720_1280/B4EZldeMxnGUAI-/0/1758209826023?e=2147483647&v=beta&t=41EjJrvnFareKNdWfJADfFE-fBeOMkH3kDGdbbD12S4"
+          className="rounded-3xl shadow-xl"
+        />
 
-      {/* MODAL */}
-      {showForm && (
-        <div
-          className="fixed inset-0 bg-black/60 flex items-center justify-center z-50"
-          onClick={() => setShowForm(false)}
-        >
-          <div
-            className="bg-white rounded-3xl p-8 w-full max-w-lg shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
+        <div>
+          <h2 className="text-4xl font-bold mb-6">
+            Enterprise <span className="text-orange-500">AI Capabilities</span>
+          </h2>
 
-            {!submitted ? (
-              <>
-                <h2 className="text-2xl font-bold mb-6">
-                  Corporate Training Enquiry
-                </h2>
+          <ul className="space-y-4 text-slate-600">
+            <li>✔ AI Strategy & Consulting</li>
+            <li>✔ Workflow Automation</li>
+            <li>✔ GenAI Tools Integration</li>
+            <li>✔ Custom AI Solutions</li>
+          </ul>
+        </div>
+      </section>
 
-                <form onSubmit={submitForm} className="space-y-4">
+      {/* ================= CTA ================= */}
+      <section className="py-24 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
 
-                  {["companyName","contactName","email","phone"].map((field) => (
-                    <input
-                      key={field}
-                      name={field}
-                      placeholder={field}
-                      value={form[field]}
-                      onChange={handleChange}
-                      className="w-full border border-slate-300 px-4 py-3 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
-                    />
-                  ))}
+          <div className="relative rounded-[30px] p-16 text-center shadow-2xl overflow-hidden">
 
-                  <select
-                    name="teamSize"
-                    value={form.teamSize}
-                    onChange={handleChange}
-                    className="w-full border border-slate-300 px-4 py-3 rounded-xl"
-                  >
-                    <option value="">Team Size</option>
-                    <option>5-10</option>
-                    <option>10-50</option>
-                    <option>50-100</option>
-                    <option>100+</option>
-                  </select>
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500"></div>
 
-                  <button
-                    type="submit"
-                    className="w-full bg-indigo-600 text-white py-3 rounded-full font-semibold hover:bg-indigo-500"
-                  >
-                    Submit Enquiry
-                  </button>
+            <div className="relative z-10 text-white">
 
-                </form>
-              </>
-            ) : (
-              <div className="text-center">
-                <h2 className="text-2xl font-bold text-green-600 mb-4">
-                  Enquiry Submitted 🎉
-                </h2>
-                <p className="text-slate-500 mb-6">
-                  Our team will contact you within 24 hours.
-                </p>
-                <button
-                  onClick={() => setShowForm(false)}
-                  className="bg-indigo-600 text-white px-6 py-3 rounded-full"
-                >
-                  Close
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                Ready to transform your enterprise?
+              </h2>
+
+              <p className="text-white/90 mb-10">
+                Join forward-thinking companies using AI.
+              </p>
+
+              <div className="flex justify-center gap-4 flex-wrap">
+
+                <button className="bg-white text-black px-8 py-4 rounded-full font-semibold">
+                  Schedule Consultation
                 </button>
-              </div>
-            )}
 
+                <button className="bg-black text-white px-8 py-4 rounded-full font-semibold">
+                  View Case Studies
+                </button>
+
+              </div>
+
+            </div>
           </div>
         </div>
-      )}
+      </section>
 
     </div>
   );
-};
-
-export default Corporate;
+}

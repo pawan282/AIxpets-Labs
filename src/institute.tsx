@@ -1,263 +1,226 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { motion } from "framer-motion";
 
-const instituteCourses = [
+const courses = [
   {
-    id: 1,
-    title: "Complete AI & ML Program",
-    subtitle: "Become an AI engineer with real projects",
-    level: "Beginner",
-    duration: "6 Months",
-    rating: 4.9,
-    reviews: 420,
-    students: "3200+",
-    image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200",
-    tags: ["Python", "ML", "Deep Learning"],
+    title: "AI & ML Program",
+    desc: "Become AI Engineer with real projects",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200",
   },
   {
-    id: 2,
-    title: "Generative AI & LLM Course",
-    subtitle: "Master ChatGPT, LLMs and AI tools",
-    level: "Intermediate",
-    duration: "3 Months",
-    rating: 4.8,
-    reviews: 260,
-    students: "2100+",
-    image:
-      "https://images.unsplash.com/photo-1682685797439-a05dd915cee9?q=80&w=1200",
-    tags: ["ChatGPT", "LLMs", "Prompt Engineering"],
+    title: "Generative AI",
+    desc: "Master ChatGPT & LLM tools",
+    image: "https://images.unsplash.com/photo-1682685797439-a05dd915cee9?q=80&w=1200",
   },
   {
-    id: 3,
-    title: "Data Science Program",
-    subtitle: "Data analysis, ML & real datasets",
-    level: "Beginner",
-    duration: "5 Months",
-    rating: 4.7,
-    reviews: 300,
-    students: "2800+",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200",
-    tags: ["Python", "Pandas", "ML"],
+    title: "Data Science",
+    desc: "Real datasets & ML training",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200",
   },
 ];
 
 export default function Institute() {
   const [showForm, setShowForm] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    course: "",
-  });
 
   useEffect(() => {
-    AOS.init({ duration: 700, once: true });
+    AOS.init({ duration: 800, once: true });
   }, []);
 
-  const handleChange = (e: any) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const submitForm = (e: any) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
   return (
-    <div className="bg-white pt-24">
+    <div className="bg-white text-slate-900 overflow-hidden">
 
-      {/* HERO */}
-      <div className="max-w-6xl mx-auto px-6 text-center mb-20">
+      {/* ================= HERO ================= */}
+      <section className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
 
-        <span className="bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest">
-          Institute Training
-        </span>
+        {/* LEFT */}
+        <motion.div initial={{ x: -80, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
+          <h1 className="text-6xl font-bold leading-tight">
+            Launch Your Career in{" "}
+            <span className="text-orange-500">Artificial Intelligence</span>
+          </h1>
 
-        <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mt-6 mb-6">
-          AI Courses for <span className="text-purple-600">Individuals</span>
-        </h1>
+          <p className="text-slate-500 mt-6 text-lg max-w-xl">
+            Learn AI from industry experts with real-world projects, certifications,
+            and career support.
+          </p>
 
-        <p className="text-slate-500 text-lg max-w-2xl mx-auto">
-          Industry focused AI programs with real projects and placement support.
-        </p>
+          <div className="flex gap-4 mt-8">
+            <button
+              onClick={() => setShowForm(true)}
+              className="bg-orange-500 text-white px-8 py-4 rounded-full hover:scale-105 transition"
+            >
+              Get Started
+            </button>
 
-        <button
-          onClick={() => setShowForm(true)}
-          className="mt-10 bg-purple-600 text-white px-8 py-4 rounded-full font-semibold"
-        >
-          Enroll Now
-        </button>
+            <button className="border px-8 py-4 rounded-full">
+              Explore Programs
+            </button>
+          </div>
 
-      </div>
+          {/* TRUST */}
+          <div className="flex gap-6 mt-10 text-sm text-slate-500">
+            <span>⭐ 4.9 Rating</span>
+            <span>50K+ Students</span>
+            <span>Job Ready</span>
+          </div>
+        </motion.div>
 
-      {/* COURSES */}
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+        {/* RIGHT */}
+       {/* RIGHT VIDEO */}
+<motion.div
+  initial={{ x: 80, opacity: 0 }}
+  animate={{ x: 0, opacity: 1 }}
+  className="relative rounded-3xl overflow-hidden"
+>
 
-        {instituteCourses.map((course, i) => (
-          <div
-            key={course.id}
-            data-aos="fade-up"
-            data-aos-delay={i * 80}
-            className="border border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl transition"
-          >
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="w-full h-[350px] md:h-[420px] object-cover rounded-3xl"
+  >
+    <source src="/video/institute.mp4" type="video/mp4" />
+  </video>
 
-            <img
-              src={course.image}
-              className="w-full h-52 object-cover"
-            />
+  {/* OPTIONAL: light overlay (remove if want full clarity) */}
+  <div className="absolute inset-0 bg-black/10"></div>
 
-            <div className="p-6">
+</motion.div>
 
-              <div className="flex justify-between text-sm text-slate-500 mb-2">
-                <span>{course.level}</span>
-                <span>{course.duration}</span>
-              </div>
+      </section>
 
-              <h3 className="text-xl font-bold text-slate-900 mb-2">
-                {course.title}
-              </h3>
+    
+      {/* ================= STATS ================= */}
+      <section className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-6 mb-24">
 
-              <p className="text-slate-500 mb-4">
-                {course.subtitle}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-4">
-                {course.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs bg-slate-100 px-3 py-1 rounded-full"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex justify-between items-center">
-
-                <span className="text-sm text-slate-500">
-                  ⭐ {course.rating} ({course.reviews})
-                </span>
-
-                <button
-                  onClick={() => {
-                    setShowForm(true);
-                    setForm({ ...form, course: course.title });
-                  }}
-                  className="text-purple-600 font-semibold"
-                >
-                  Enroll →
-                </button>
-
-              </div>
-
-            </div>
-
+        {["1000+ Learners","50+ Courses","95% Success"].map((item, i) => (
+          <div key={i} className="text-center">
+            <h3 className="text-4xl font-bold text-orange-500">{item}</h3>
           </div>
         ))}
 
-      </div>
+      </section>
+      
 
-      {/* MODAL */}
-      {showForm && (
-        <div
-          className="fixed inset-0 bg-black/60 flex items-center justify-center z-50"
-          onClick={() => setShowForm(false)}
-        >
+      {/* ================= COURSES ================= */}
+      <section className="max-w-7xl mx-auto px-6 py-20">
 
-          <div
-            className="bg-white rounded-3xl p-10 w-full max-w-lg"
-            onClick={(e) => e.stopPropagation()}
-          >
+        <h2 className="text-4xl font-bold text-center mb-14">
+          Explore <span className="text-orange-500">Programs</span>
+        </h2>
 
-            {!submitted ? (
-              <>
-                <h2 className="text-2xl font-bold mb-6">
-                  Enroll in Course
-                </h2>
+        <div className="grid md:grid-cols-3 gap-8">
 
-                <form onSubmit={submitForm} className="space-y-4">
+          {courses.map((c, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -10 }}
+              data-aos="fade-up"
+              className="rounded-3xl overflow-hidden shadow hover:shadow-2xl transition"
+            >
+              <img src={c.image} className="h-52 w-full object-cover" />
 
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Full Name"
-                    value={form.name}
-                    onChange={handleChange}
-                    className="w-full border border-slate-300 px-4 py-3 rounded-xl"
-                  />
-
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={form.email}
-                    onChange={handleChange}
-                    className="w-full border border-slate-300 px-4 py-3 rounded-xl"
-                  />
-
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone"
-                    value={form.phone}
-                    onChange={handleChange}
-                    className="w-full border border-slate-300 px-4 py-3 rounded-xl"
-                  />
-
-                  <select
-                    name="course"
-                    value={form.course}
-                    onChange={handleChange}
-                    className="w-full border border-slate-300 px-4 py-3 rounded-xl"
-                  >
-                    <option value="">Select Course</option>
-                    {instituteCourses.map((c) => (
-                      <option key={c.id}>{c.title}</option>
-                    ))}
-                  </select>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-purple-600 text-white py-3 rounded-full"
-                  >
-                    Submit Enrollment
-                  </button>
-
-                </form>
-              </>
-            ) : (
-
-              <div className="text-center">
-
-                <h2 className="text-2xl font-bold text-green-600 mb-4">
-                  Enrollment Sent 🎉
-                </h2>
-
-                <p className="text-slate-500 mb-6">
-                  Our team will contact you shortly.
-                </p>
+              <div className="p-6">
+                <h3 className="font-bold text-xl mb-2">{c.title}</h3>
+                <p className="text-slate-500 mb-4">{c.desc}</p>
 
                 <button
-                  onClick={() => setShowForm(false)}
-                  className="bg-purple-600 text-white px-6 py-3 rounded-full"
+                  onClick={() => setShowForm(true)}
+                  className="text-orange-500 font-semibold"
                 >
-                  Close
+                  Enroll →
                 </button>
-
               </div>
+            </motion.div>
+          ))}
 
-            )}
+        </div>
+      </section>
 
+      {/* ================= BENEFITS ================= */}
+      <section className="bg-slate-50 py-20">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-6 bg-gradient-to-r from-orange-500 to-purple-500 text-white text-center">
+
+          {[
+            "Real Projects",
+            "Industry Mentors",
+            "Placement Support",
+          ].map((item, i) => (
+            <div key={i} className="bg-orange  p-6 rounded-2xl shadow">
+              <h3 className="font-bold">{item}</h3>
+            </div>
+          ))}
+
+        </div>
+      </section>
+      {/* ================= TRUST / PARTNERS ================= */}
+<section className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
+
+  {/* LEFT TEXT */}
+  <motion.div
+    initial={{ x: -60, opacity: 0 }}
+    whileInView={{ x: 0, opacity: 1 }}
+    transition={{ duration: 0.8 }}
+  >
+    <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+      Offer students{" "}
+      <span className="text-orange-500">10,600+ courses</span>{" "}
+      from 350+ leading universities and industry partners
+    </h2>
+
+    <p className="text-slate-500 mt-6 text-lg max-w-xl">
+      Learn from world-class institutions and top companies with
+      cutting-edge AI curriculum and real-world applications.
+    </p>
+  </motion.div>
+
+  {/* RIGHT LOGO IMAGE */}
+  <motion.div
+    initial={{ x: 60, opacity: 0 }}
+    whileInView={{ x: 0, opacity: 1 }}
+    transition={{ duration: 0.8 }}
+  >
+    <img
+      src="https://images.ctfassets.net/2pudprfttvy6/2eC1z7LVc0mMog2PnVxS5u/1e10361669fa01aeea0a1a2e9352a229/BC-2700_B2B_Homepage_Partner_Logo_Refresh_April_2024b.png"
+      className="w-full rounded-2xl shadow-xl"
+    />
+  </motion.div>
+
+</section>
+
+      {/* ================= CTA ================= */}
+      <section className="py-24">
+        <div className="max-w-4xl mx-auto text-center bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 text-white p-16 rounded-3xl">
+
+          <h2 className="text-4xl font-bold mb-6">
+            Start Your AI Journey Today
+          </h2>
+
+          <button
+            onClick={() => setShowForm(true)}
+            className="bg-white text-black px-8 py-3 rounded-full"
+          >
+            Enroll Now
+          </button>
+
+        </div>
+      </section>
+
+      {/* ================= MODAL ================= */}
+      {showForm && (
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-2xl w-80">
+            <h2 className="font-bold mb-4">Enroll</h2>
+            <input className="w-full mb-2 border p-2" placeholder="Name" />
+            <input className="w-full mb-2 border p-2" placeholder="Email" />
+            <button className="w-full bg-orange-500 text-white py-2">
+              Submit
+            </button>
           </div>
-
         </div>
       )}
 

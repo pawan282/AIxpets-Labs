@@ -7,6 +7,7 @@ import Portfolio from "./portfolio";
 import Contact from "./contact";
 import Corporate from "./corporate";
 import Institute from "./institute";
+import School from "./school";
 import ecotwist from "./assets/partners/ecotwist.png";
 import bharatx from "./assets/partners/bhartex.png";
 import infratech from "./assets/partners/infratech.png";
@@ -103,6 +104,13 @@ const Navbar = () => {
                       className="block px-4 py-2 text-sm hover:bg-slate-100"
                     >
                       Institute Courses
+                    </Link>
+
+                    <Link
+                      to="/school"
+                      className="block px-4 py-2 text-sm hover:bg-slate-100"
+                    >
+                      School Programs
                     </Link>
 
                   </div>
@@ -782,7 +790,7 @@ const Footer = () => {
               <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center">
                 <Zap className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-slate-900">AIxperts Labs</span>
+              <span className="text-2xl font-bold text-slate-900">AIxpts Labs</span>
             </div>
             <p className="text-slate-500 leading-relaxed mb-10">
               The global standard for AI innovation, education, and enterprise transformation.
@@ -871,6 +879,8 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/corporate" element={<Corporate />} />
             <Route path="/institute" element={<Institute />} />
+            <Route path="/school" element={<School />} />
+            {/* <Route path="/research" element={<Research />} /> */}
             <Route path="/consultation" element={<Consultation />} />
           </Routes>
         </main>
