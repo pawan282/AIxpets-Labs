@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const servicesData = [
   {
@@ -97,12 +99,8 @@ const Services = () => {
   <div className="relative z-10 max-w-7xl mx-auto px-6 py-6 text-center">
 
     {/* TAG */}
-   <span className="inline-block 
-bg-white/10 border border-white/20 
-text-orange-400 text-sm md:text-base font-extrabold 
-px-8 py-3 rounded-full backdrop-blur-md 
-uppercase tracking-[0.50em] 
-mb-8 shadow-lg">
+   <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-6">
+  <Sparkles className="w-4 h-4" />
   OUR SERVICES
 </span>
 
@@ -122,19 +120,21 @@ mb-8 shadow-lg">
     {/* CTA */}
     <div className="flex flex-col sm:flex-row justify-center gap-6 mb-16">
 
-      <a
-        href="tel:+919811263046"
-        className="px-8 py-4 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold shadow-lg hover:scale-105 transition"
-      >
-        🚀 Start Your Roadmap
-      </a>
+      <Link
+  to="/consultation"
+  onClick={() => window.scrollTo(0, 0)}
+  className="bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-500 transition-all"
+>
+  Free Consultation
+</Link>
 
-      <a
-        href="#services"
-        className="px-8 py-4 rounded-full border border-white/20 text-white hover:bg-white/10 transition"
-      >
-        View Solutions
-      </a>
+     <Link
+  to="/corporate"
+  onClick={() => window.scrollTo(0, 0)}
+  className="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-gray-200 transition-all"
+>
+  View Case Study →
+</Link>
 
     </div>
 

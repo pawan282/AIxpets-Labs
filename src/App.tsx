@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import About from "./about";
+
 import Services from "./services";
 import Portfolio from "./portfolio";
 import Contact from "./contact";
 import Corporate from "./corporate";
 import Institute from "./institute";
 import School from "./school";
+import logo from "./assets/logo/logo.png";
 import ecotwist from "./assets/partners/ecotwist.png";
 import bharatx from "./assets/partners/bhartex.png";
 import infratech from "./assets/partners/infratech.png";
@@ -51,13 +53,13 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3">
-          <img
-            src="https://aixpertslabs.com/assets/logo8-4a902e74.png"
-            alt="AIxperts Labs Logo"
-            className="h-10"
-          />
-        </Link>
+       <Link to="/" className="flex items-center gap-3">
+  <img
+    src={logo}
+    alt="AIxperts Labs Logo"
+    className="h-10"
+  />
+</Link>
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
@@ -129,22 +131,12 @@ const Navbar = () => {
             <Link to="/consultation" className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-blue-500 hover:scale-105 transition-all shadow-lg shadow-blue-100">
               Free Consultation
           </Link>
-
-
-          </div>
+           </div>
 
           {/* Right Side Buttons */}
           <div className="flex items-center gap-6">
 
-            <button className="text-slate-500 hover:text-slate-900 transition-colors">
-              <Search className="w-5 h-5" />
-            </button>
-
-            <button className="text-sm font-bold text-slate-900 flex items-center gap-2 hover:text-blue-600 transition-colors">
-              <User className="w-5 h-5" />
-            </button>
-
-          </div>
+           </div>
 
         </div>
 
@@ -201,14 +193,20 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-6">
-              <button className="bg-orange-600 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-orange-700 transition-all flex items-center gap-3">
-                Explore Solutions
-                <ArrowRight className="w-5 h-5" />
-              </button>
+             <Link
+  to="/services"
+  className="bg-orange-600 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-orange-700 transition-all flex items-center gap-3"
+>
+  Explore Solutions
+  <ArrowRight className="w-5 h-5" />
+</Link>
 
-              <button className="bg-white/5 border border-white/10 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/10 transition-all">
-                Our Methodology
-              </button>
+              <Link
+  to="/about"
+  className="bg-white/5 border border-white/10 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/10 transition-all"
+>
+  Our Methodology
+</Link>
             </div>
 
             <div className="mt-16 flex items-center gap-10 border-t border-white/10 pt-10">
@@ -384,7 +382,7 @@ const CapabilityStack = () => {
     <section className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mb-10">
-          <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight">The AIxpets <br /><span className="text-orange-600">Capability Stack</span></h2>
+          <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight">The AIxperts <br /><span className="text-orange-600">Capability Stack</span></h2>
           <p className="text-slate-500 text-lg leading-relaxed">Our vertical integration ensures that every layer of your AI transformation is optimized for performance and security.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -447,13 +445,17 @@ const CaseStudies = () => {
         </div>
         <div className="grid lg:grid-cols-2 gap-10">
           {[
-            { title: 'Global Bank Transformation', client: 'Fortune 500 Bank', impact: '40% Cost Reduction', img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000' },
-            { title: 'Autonomous Logistics Hub', client: 'LogiTech Corp', impact: '99.9% Accuracy', img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1000' },
+            { title: 'Global Bank Transformation', client: 'Fortune 500 Bank', impact: '40% Cost Reduction', img: 'https://www.shutterstock.com/image-photo/cost-reduction-saving-through-digital-600nw-2669968679.jpg' },
+            { title: 'Autonomous Logistics Hub', client: 'LogiTech Corp', impact: '99.9% Accuracy', img: 'https://media.istockphoto.com/id/2205777418/photo/port-of-southampton-captured-by-drone-at-sunrise.jpg?s=612x612&w=0&k=20&c=t5CV8Tcin-Qe5wMQ7I5xFxiy94B0vkvPslr-t0hrG5Q=' },
           ].map((study, i) => (
             <div key={i} className="group cursor-pointer">
               <div className="relative h-[400px] rounded-[40px] overflow-hidden mb-8">
-                <img src={study.img} alt={study.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
-                <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/20 transition-all" />
+               <img
+  src={study.img}
+  alt={study.title}
+  className="w-full h-full object-cover rounded-[40px]"
+/>
+               
                 <div className="absolute bottom-10 left-10">
                   <span className="bg-orange-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block">{study.impact}</span>
                   <h3 className="text-3xl font-bold text-white tracking-tight">{study.title}</h3>
@@ -624,18 +626,22 @@ const Solutions = () => {
               <div className="h-px w-12 bg-orange-500" />
               <span className="text-orange-500 font-bold uppercase tracking-[0.2em] text-xs">Our Expertise</span>
             </div>
-            <h2 className="text-5xl md:text-7xl font-bold text-slate-900 leading-tight tracking-tight">
-              Architecting the <br />
-              <span className="text-slate-400">Next Era of Intelligence</span>
-            </h2>
+            <h2 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
+  <span className="text-black">Architecting the</span> <br />
+  <span className="text-orange-600">Next Era of Intelligence</span>
+</h2>
           </div>
           <div className="lg:col-span-4 lg:pb-4">
             <p className="text-slate-500 text-lg leading-relaxed mb-8">
               We provide the technical foundation and strategic vision required for organizations to thrive in an AI-first world.
             </p>
-            <button className="text-slate-900 font-bold flex items-center gap-2 group hover:text-orange-600 transition-colors uppercase tracking-widest text-sm">
-              View Capabilities <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            <Link
+  to="/portfolio"
+  className="text-slate-900 font-bold flex items-center gap-2 group hover:text-orange-600 transition-colors uppercase tracking-widest text-sm"
+>
+  View Capabilities 
+  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+</Link>
           </div>
         </div>
 
@@ -671,78 +677,137 @@ const Solutions = () => {
 };
 
 const HelloGini = () => {
+
+  const [listening, setListening] = useState(false);
+  const [response, setResponse] = useState("");
+  useEffect(() => {
+  window.speechSynthesis.onvoiceschanged = () => {
+    window.speechSynthesis.getVoices();
+  };
+}, []);
+
+ const SpeechRecognition =
+  (window as any).SpeechRecognition ||
+  (window as any).webkitSpeechRecognition;
+
+  const recognition = new SpeechRecognition();
+  recognition.lang = "en-IN";
+
+  const startListening = () => {
+    setListening(true);
+    recognition.start();
+
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript.toLowerCase();
+
+      let reply = "";
+
+      if (transcript.includes("hellogini") || transcript.includes("what is this")) {
+        reply = "HelloGini ek voice based AI system hai jo human aur machine ke beech natural interaction create karta hai.";
+      } 
+      else if (transcript.includes("feature")) {
+        reply = "HelloGini ke features me voice interaction, emotion understanding aur privacy first architecture shamil hai.";
+      } 
+      else if (transcript.includes("project")) {
+        reply = "Humne chatbot, fraud detection aur automation jaise AI projects banate hain.";
+      } 
+      else {
+        reply = "Sorry, please ask about HelloGini or our AI projects.";
+      }
+
+      setResponse(reply);
+      speak(reply);
+    };
+
+    recognition.onend = () => setListening(false);
+  };
+
+  const speak = (text) => {
+  const synth = window.speechSynthesis;
+  const voices = synth.getVoices();
+
+  // 🎯 Priority: Indian Hindi Female Voice
+  let selectedVoice =
+    voices.find(v => v.name.includes("Google हिन्दी")) ||   // best Hindi
+    voices.find(v => v.name.includes("Heera")) ||          // Microsoft female
+    voices.find(v => v.name.includes("Swara")) ||          // Microsoft female
+    voices.find(v => v.lang === "hi-IN") ||                // fallback Hindi
+    voices.find(v => v.lang === "en-IN");                  // fallback English India
+
+  const utter = new SpeechSynthesisUtterance(text);
+
+  if (selectedVoice) {
+    utter.voice = selectedVoice;
+  }
+
+  utter.lang = "hi-IN";   // 👈 important for Hindi
+  utter.pitch = 1.3;      // 👈 soft female tone
+  utter.rate = 0.85;      // 👈 slow & clear
+  utter.volume = 1;
+
+  synth.cancel(); // clear previous speech
+  synth.speak(utter);
+};false
+
   return (
     <section className="py-16 bg-white relative overflow-hidden border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
+
+          {/* LEFT IMAGE */}
           <div className="order-2 lg:order-1">
-            <div className="relative">
-              <div className="absolute -inset-4 bg-orange-500/10 blur-3xl rounded-full opacity-50" />
-              <div className="relative rounded-[48px] overflow-hidden border border-slate-200 shadow-2xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1589254065878-42c9da997008?q=80&w=1000&auto=format&fit=crop" 
-                  alt="HelloGini Interface" 
-                  className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-white via-transparent to-transparent" />
-                
-                {/* Voice Visualizer Mock */}
-                <div className="absolute bottom-12 left-12 right-12 bg-white/80 backdrop-blur-xl p-8 rounded-3xl border border-slate-200 shadow-lg">
-                  <div className="flex items-center gap-6">
-                    <div className="flex gap-1 items-center h-8">
-                      {[0.4, 0.8, 0.5, 0.9, 0.6, 0.3, 0.7].map((h, i) => (
-                        <motion.div 
-                          key={i}
-                          animate={{ height: [h*100 + '%', (1-h)*100 + '%', h*100 + '%'] }}
-                          transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.1 }}
-                          className="w-1 bg-orange-500 rounded-full"
-                        />
-                      ))}
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Voice Processing</p>
-                      <p className="text-lg font-bold text-slate-900 tracking-tight">"Analyzing intent..."</p>
-                    </div>
-                  </div>
-                </div>
+            <div className="relative rounded-[48px] overflow-hidden border shadow-2xl">
+              <img 
+                src="https://images.unsplash.com/photo-1589254065878-42c9da997008?q=80&w=1000"
+                className="w-full grayscale"
+              />
+
+              {/* VOICE UI */}
+              <div className="absolute bottom-10 left-10 right-10 bg-white p-6 rounded-2xl shadow-lg">
+                <p className="text-xs text-slate-400 mb-1">VOICE ASSISTANT</p>
+                <p className="font-bold text-slate-900">
+                  {listening ? "Listening..." : "Ask about HelloGini"}
+                </p>
               </div>
             </div>
           </div>
 
+          {/* RIGHT CONTENT */}
           <div className="order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-600 text-xs font-bold uppercase tracking-widest mb-8">
-              Flagship Innovation
-            </div>
-            <h2 className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 leading-tight tracking-tight">
-              HelloGini: <br />
-              <span className="text-orange-600 italic">Voice-Native AI</span>
+
+            <h2 className="text-5xl font-bold mb-6">
+              <span className="text-black">HelloGini:</span>{" "}
+              <span className="text-orange-500 italic">Voice-Native AI</span>
             </h2>
-            <p className="text-xl text-slate-500 mb-12 leading-relaxed">
-              Developed by AIxpets Labs, HelloGini is a revolutionary voice-first interface designed for universal accessibility. It transforms human-machine interaction into a natural, emotive dialogue.
+
+            <p className="text-slate-500 mb-6">
+              Developed by AIxpets Labs, HelloGini is a revolutionary voice-first interface.
             </p>
-            
-            <div className="space-y-6 mb-12">
-              {[
-                { label: 'Universal Accessibility', desc: 'Bridging the digital divide through voice.' },
-                { label: 'Emotive Intelligence', desc: 'Understanding tone, context, and sentiment.' },
-                { label: 'Privacy-First Architecture', desc: 'On-device processing for ultimate security.' },
-              ].map((item, i) => (
-                <div key={i} className="flex gap-5 group">
-                  <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-all">
-                    <CheckCircle2 className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="text-slate-900 font-bold text-lg mb-1">{item.label}</h4>
-                    <p className="text-slate-500">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
+
+            {/* FEATURES */}
+            <div className="space-y-4 mb-8">
+              <p>✔ Universal Accessibility</p>
+              <p>✔ Emotive Intelligence</p>
+              <p>✔ Privacy-First Architecture</p>
             </div>
 
-            <button className="bg-slate-900 text-white px-10 py-5 rounded-full font-bold hover:bg-orange-600 hover:scale-105 transition-all flex items-center gap-3 shadow-xl shadow-slate-200">
-              Explore the Interface <ArrowUpRight className="w-5 h-5" />
+            {/* 🎤 VOICE BUTTON */}
+            <button
+              onClick={startListening}
+              className={`px-6 py-3 rounded-full font-bold flex items-center gap-2 ${
+                listening ? "bg-red-500 text-white" : "bg-black text-white"
+              }`}
+            >
+              🎤 {listening ? "Listening..." : "Ask HelloGini"}
             </button>
+
+            {/* RESPONSE */}
+            {response && (
+              <p className="mt-6 text-lg text-slate-700">
+                🤖 {response}
+              </p>
+            )}
+
           </div>
         </div>
       </div>
@@ -761,7 +826,7 @@ const CTA = () => {
           Ready to <span className="text-orange-600">Evolve?</span>
         </h2>
         <p className="text-xl md:text-1xl text-slate-500 mb-6 max-w-2xl mx-auto leading-relaxed">
-          Join the elite organizations transforming their future with AIxpets Labs. The next era of intelligence starts now.
+          Join the elite organizations transforming their future with AIxperts Labs. The next era of intelligence starts now.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
           <button className="w-full sm:w-auto bg-slate-900 text-white px-12 py-6 rounded-full font-bold text-xl hover:bg-orange-600 hover:scale-105 transition-all shadow-2xl shadow-slate-200">
@@ -787,10 +852,14 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-16 mb-10">
           <div>
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center">
-                <Zap className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold text-slate-900">AIxpts Labs</span>
+               <Link to="/" className="flex items-center gap-3">
+  <img
+    src={logo}
+    alt="AIxperts Labs Logo"
+    className="h-10"
+  />
+</Link>
+              <span className="text-2xl font-bold text-slate-900">AIxperts Labs</span>
             </div>
             <p className="text-slate-500 leading-relaxed mb-10">
               The global standard for AI innovation, education, and enterprise transformation.
@@ -813,11 +882,37 @@ const Footer = () => {
 
           <div>
             <h4 className="text-slate-900 font-bold mb-8 uppercase tracking-widest text-xs">Company</h4>
-            <ul className="space-y-4">
-              {['About Us', 'Innovation Lab', 'Case Studies', 'Careers', 'Contact'].map(item => (
-                <li key={item}><a href="#" className="text-slate-500 hover:text-orange-600 transition-colors">{item}</a></li>
-              ))}
-            </ul>
+           <ul className="space-y-4">
+  <li>
+    <Link to="/" className="text-slate-500 hover:text-orange-600 transition-colors">
+      Home
+    </Link>
+  </li>
+
+  <li>
+    <Link to="/about" className="text-slate-500 hover:text-orange-600 transition-colors">
+      About
+    </Link>
+  </li>
+
+  <li>
+    <Link to="/services" className="text-slate-500 hover:text-orange-600 transition-colors">
+      Services
+    </Link>
+  </li>
+
+  <li>
+    <Link to="/portfolio" className="text-slate-500 hover:text-orange-600 transition-colors">
+      Portfolio
+    </Link>
+  </li>
+
+  <li>
+    <Link to="/contact" className="text-slate-500 hover:text-orange-600 transition-colors">
+      Contact
+    </Link>
+  </li>
+</ul>
           </div>
 
           <div>
@@ -860,7 +955,7 @@ const HomePage = () => (
     <CaseStudies />
     <EducationEcosystem />
     <HelloGini />
-    <ThoughtLeadership />
+    {/* <ThoughtLeadership /> */}
     <CTA /> 
   </>
 );

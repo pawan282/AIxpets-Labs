@@ -1,7 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-
+import { Link } from "react-router-dom";
+import { Sparkles } from "lucide-react";
 export default function AboutPage() {
   return (
     <div className="bg-white text-slate-900">
@@ -42,9 +43,10 @@ export default function AboutPage() {
 </div>
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
 
-          <span className="inline-block px-5 py-2 text-[10px] font-bold uppercase tracking-[0.2em] bg-white/10 border border-white/20 text-white rounded-full mb-8 backdrop-blur">
-            ARCHITECTING INTELLIGENCE
-          </span>
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-5">
+  <Sparkles className="w-4 h-4" />
+  ARCHITECTING INTELLIGENCE
+</span>
 
           <h1 className="text-5xl md:text-7xl font-bold leading-tight text-white mb-6">
             Building the Future of{" "}
@@ -58,11 +60,14 @@ export default function AboutPage() {
           </p>
 
           <div className="flex justify-center gap-5 flex-wrap">
-            <button className="px-8 py-3 bg-orange-500 text-white rounded-xl font-semibold hover:scale-105 transition">
-              CONSULTATION
-            </button>
+            <Link
+  to="/consultation"
+  className="bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-500 transition-all"
+>
+  Free Consultation
+</Link>
             <button className="px-8 py-3 border border-white/30 text-white rounded-xl font-semibold hover:bg-white/10 transition">
-              Our Vision
+              WHO WE ARE
             </button>
           </div>
 
@@ -458,20 +463,20 @@ export default function AboutPage() {
           />
 
           <TeamRowCard
-            name="Anshu Bharti"
-            role="Co-Founder & COO"
-            img="https://aixpertslabs.com/assets/Anshu-5f8fa3a3.jpeg"
-          />
-
-          <TeamRowCard
             name=" Harshu Bharti"
-            role="Co-founder & CTO"
+            role="Co-Founder & CTO"
             img="https://aixpertslabs.com/assets/Harshu-67b2905b.jpeg"
           />
 
           <TeamRowCard
+            name=" Anshu Bharti"
+            role="Co-founder & COO"
+            img="https://aixpertslabs.com/assets/Anshu-5f8fa3a3.jpeg"
+          />
+
+          <TeamRowCard
             name="Saurav Suman"
-            role="Head of Sales"
+            role="Head of Sales & internship"
             img="https://aixpertslabs.com/assets/Suman-bac29b31.png"
           />
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AOS from "aos";
+import { Sparkles } from "lucide-react";
 import "aos/dist/aos.css";
 
 const categories = [
@@ -19,7 +20,7 @@ const projects = [
     solution: "LLM-powered chatbot integrated with CRM",
     result: "80% Support Automation",
     impact: "Reduced cost by 60% & improved CX",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1600",
+    image: "https://www.metadialog.com/wp-content/uploads/feed_images/ai-for-customer-service-agent-how-artificial-intelligence-can-help-img-3.webp",
     tags: ["ChatGPT", "NLP", "Automation"],
   },
   {
@@ -30,7 +31,7 @@ const projects = [
     solution: "ML model using historical + seasonal data",
     result: "35% Accuracy Improvement",
     impact: "Optimized inventory & planning",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600",
+    image: "https://cdn.prod.website-files.com/646676446cb9dc8974098e5d/690a87f785e9c9bfc3dc828d_thumbnail.jpeg",
     tags: ["Python", "ML", "Data Science"],
   },
   {
@@ -41,7 +42,7 @@ const projects = [
     solution: "AI-driven logistics automation system",
     result: "50% Faster Operations",
     impact: "40% reduction in manual effort",
-    image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=1600",
+    image: "https://i0.wp.com/www.globaltrademag.com/wp-content/uploads/2023/11/shutterstock_2074243609-scaled.jpg?fit=805%2C393&ssl=1",
     tags: ["Automation", "Robotics", "AI"],
   },
   {
@@ -52,7 +53,7 @@ const projects = [
     solution: "Deep learning-based face detection system",
     result: "99% Accuracy",
     impact: "Enterprise-grade security upgrade",
-    image: "https://images.unsplash.com/photo-1526378722484-cc5c510c0fef?q=80&w=1600",
+    image: "https://www.shutterstock.com/shutterstock/videos/3758368301/thumb/3.jpg?ip=x480",
     tags: ["OpenCV", "Deep Learning"],
   },
   {
@@ -66,6 +67,17 @@ const projects = [
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600",
     tags: ["AI", "Ecommerce"],
   },
+  {
+  id: 6,
+  title: "AI Fraud Detection System",
+  category: "Machine Learning",
+  problem: "Increasing online fraud & fake transactions",
+  solution: "AI model detecting anomalies in real-time transactions",
+  result: "90% Fraud Detection Accuracy",
+  impact: "Reduced financial losses & improved trust",
+  image: "https://chargebacks911.com/wp-content/uploads/2025/01/Ai-Fraud-Detection-poster.jpg",
+  tags: ["AI", "Security", "ML"],
+}
 ];
 
 const Portfolio = () => {
@@ -113,14 +125,10 @@ const Portfolio = () => {
   <div className="relative z-10 max-w-7xl mx-auto px-6 py-6 text-center">
 
     {/* TAG (same as services) */}
-    <span className="inline-block 
-    bg-white/10 border border-white/20 
-    text-orange-400 text-sm md:text-base font-extrabold 
-    px-8 py-3 rounded-full backdrop-blur-md 
-    uppercase tracking-[0.50em] 
-    mb-8 shadow-lg">
-      OUR PORTFOLIO
-    </span>
+    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-widest mb-8 shadow-lg backdrop-blur-md">
+  <Sparkles className="w-4 h-4" />
+  OUR PORTFOLIO
+</span>
 
     {/* HEADING (bigger like services) */}
     <h1 className="text-4xl md:text-8xl font-bold text-white leading-tight mb-6">
@@ -189,99 +197,190 @@ const Portfolio = () => {
 </div>
 
       {/* FILTER */}
-      <div className="flex justify-center flex-wrap gap-4 mt-20 mb-16 px-6">
-        {categories.map((c) => (
-          <button
-            key={c}
-            onClick={() => setActive(c)}
-            className={`px-6 py-2 rounded-full font-semibold ${
-              active === c
-                ? "bg-purple-600 text-white"
-                : "bg-slate-100 text-slate-600 hover:bg-purple-100"
-            }`}
-          >
-            {c}
-          </button>
-        ))}
+    {/* FILTER */}
+<div className="flex justify-center flex-wrap gap-4 mt-20 mb-16 px-6">
+  {categories.map((c) => (
+    <button
+      key={c}
+      onClick={() => setActive(c)}
+      className={`px-6 py-2 rounded-full font-semibold transition ${
+        active === c
+          ? "bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg"
+          : "bg-slate-100 text-slate-600 hover:bg-purple-100"
+      }`}
+    >
+      {c}
+    </button>
+  ))}
+</div>
+
+{/* PROJECTS */}
+<div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+  {filtered.map((p, i) => (
+    <div
+      key={p.id}
+      data-aos="fade-up"
+      data-aos-delay={i * 80}
+      className="group rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition bg-white border border-slate-100"
+    >
+
+      <div className="overflow-hidden">
+        <img
+          src={p.image}
+          className="h-60 w-full object-cover group-hover:scale-110 transition duration-500"
+        />
       </div>
 
-      {/* PROJECTS */}
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="p-6">
 
-        {filtered.map((p, i) => (
-          <div
-            key={p.id}
-            data-aos="fade-up"
-            data-aos-delay={i * 80}
-            className="group rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition bg-white"
-          >
+        {/* CATEGORY */}
+        <span className="text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">
+          {p.category}
+        </span>
 
-            <img
-              src={p.image}
-              className="h-60 w-full object-cover group-hover:scale-110 transition duration-500"
-            />
+        {/* TITLE */}
+        <h3 className="text-xl font-bold mt-3 mb-3 group-hover:text-purple-600 transition">
+          {p.title}
+        </h3>
 
-            <div className="p-6">
+        {/* DESCRIPTION BLOCK */}
+        <div className="space-y-2 text-sm text-slate-600">
 
-              <h3 className="text-xl font-bold mb-2">{p.title}</h3>
+          <p>
+            <span className="font-semibold text-red-500">Problem:</span> {p.problem}
+          </p>
 
-              <p className="text-sm text-slate-500 mb-2">
-                ❌ {p.problem}
-              </p>
+          <p>
+            <span className="font-semibold text-yellow-600">Solution:</span> {p.solution}
+          </p>
 
-              <p className="text-sm text-slate-500 mb-2">
-                💡 {p.solution}
-              </p>
+          <p>
+            <span className="font-semibold text-purple-600">Result:</span> {p.result}
+          </p>
 
-              <p className="text-sm font-semibold text-purple-600 mb-1">
-                📈 {p.result}
-              </p>
+          <p>
+            <span className="font-semibold text-green-600">Impact:</span> {p.impact}
+          </p>
 
-              <p className="text-xs text-green-600 mb-3">
-                🚀 {p.impact}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-4">
-                {p.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs bg-purple-100 text-purple-600 px-3 py-1 rounded-full"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              <span className="text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">
-                {p.category}
-              </span>
-
-            </div>
-
-          </div>
-        ))}
-
-      </div>
-
-      {/* PROCESS */}
-      <div className="max-w-6xl mx-auto px-6 mt-32 text-center">
-        <h2 className="text-4xl font-bold mb-10">How We Deliver</h2>
-
-        <div className="grid md:grid-cols-4 gap-6">
-          <div className="p-6 bg-slate-50 rounded-xl">🔍 Discovery</div>
-          <div className="p-6 bg-slate-50 rounded-xl">📊 Strategy</div>
-          <div className="p-6 bg-slate-50 rounded-xl">⚙️ Build</div>
-          <div className="p-6 bg-slate-50 rounded-xl">🚀 Deploy</div>
         </div>
+
+        {/* TAGS */}
+        <div className="flex flex-wrap gap-2 mt-4">
+          {p.tags.map((t) => (
+            <span
+              key={t}
+              className="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full"
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <button className="mt-5 text-sm font-semibold text-purple-600 hover:underline">
+  
+        </button>
+
       </div>
+
+    </div>
+  ))}
+
+</div>
+
+{/* VALUE SECTION */}
+<div className="max-w-6xl mx-auto px-6 mt-32 text-center">
+  <h2 className="text-4xl font-bold mb-6">
+  <span className="text-orange-500">Delivering Measurable</span>{" "}
+  <span className="text-black">AI Impact</span>
+</h2>
+
+  <p className="text-slate-600 max-w-3xl mx-auto mb-12">
+    We don’t just build AI solutions — we deliver real business outcomes. 
+    Our portfolio reflects innovation, scalability, and performance across industries.
+  </p>
+
+  <div className="grid md:grid-cols-3 gap-8">
+
+    <div className="p-8 rounded-2xl bg-slate-50 hover:shadow-lg transition">
+      <h3 className="text-xl font-bold mb-2">⚡ Faster Operations</h3>
+      <p className="text-slate-600">
+        Automation-driven workflows that significantly reduce manual effort 
+        and increase efficiency.
+      </p>
+    </div>
+
+    <div className="p-8 rounded-2xl bg-slate-50 hover:shadow-lg transition">
+      <h3 className="text-xl font-bold mb-2">📈 Revenue Growth</h3>
+      <p className="text-slate-600">
+        AI-powered insights and personalization that boost conversions 
+        and maximize ROI.
+      </p>
+    </div>
+
+    <div className="p-8 rounded-2xl bg-slate-50 hover:shadow-lg transition">
+      <h3 className="text-xl font-bold mb-2">🔐 Enterprise Security</h3>
+      <p className="text-slate-600">
+        Advanced AI models ensuring high-level security, accuracy, 
+        and reliability.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+{/* PROCESS */}
+<div className="max-w-6xl mx-auto px-6 mt-32 text-center">
+  <h2 className="text-4xl font-bold mb-6">
+  <span className="text-black"> Our </span>
+  <span className="text-orange-500">Proven Process</span>{" "}
+  </h2>
+
+  <p className="text-slate-600 max-w-2xl mx-auto mb-12">
+    From idea to deployment, we follow a structured AI development lifecycle 
+    that ensures performance, scalability, and success.
+  </p>
+
+  <div className="grid md:grid-cols-4 gap-6">
+
+    <div className="p-6 bg-slate-50 rounded-xl hover:shadow-lg transition">
+      🔍 <br /> Discovery
+      <p className="text-xs text-slate-500 mt-2">
+        Understanding your business needs and challenges
+      </p>
+    </div>
+
+    <div className="p-6 bg-slate-50 rounded-xl hover:shadow-lg transition">
+      📊 <br /> Strategy
+      <p className="text-xs text-slate-500 mt-2">
+        Designing scalable AI solutions tailored to you
+      </p>
+    </div>
+
+    <div className="p-6 bg-slate-50 rounded-xl hover:shadow-lg transition">
+      ⚙️ <br /> Development
+      <p className="text-xs text-slate-500 mt-2">
+        Building robust, high-performance AI systems
+      </p>
+    </div>
+
+    <div className="p-6 bg-slate-50 rounded-xl hover:shadow-lg transition">
+      🚀 <br /> Deployment
+      <p className="text-xs text-slate-500 mt-2">
+        Launching & optimizing for real-world impact
+      </p>
+    </div>
+
+  </div>
+</div>
+
 
       {/* TESTIMONIAL */}
       <div className="max-w-4xl mx-auto px-6 mt-32 text-center">
         <p className="text-xl italic text-slate-600">
-          "AIxpets Labs transformed our operations with automation. We saw
-          immediate ROI within months."
         </p>
-        <p className="mt-4 font-semibold">— Enterprise Client</p>
+        <p className="mt-4 font-semibold"></p>
       </div>
 
       {/* CTA */}
