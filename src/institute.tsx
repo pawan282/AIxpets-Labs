@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
+
 import { motion } from "framer-motion";
 
 const courses = [
@@ -48,16 +50,17 @@ export default function Institute() {
           </p>
 
           <div className="flex gap-4 mt-8">
-            <button
-              onClick={() => setShowForm(true)}
-              className="bg-orange-500 text-white px-8 py-4 rounded-full hover:scale-105 transition"
-            >
-              Get Started
-            </button>
+            <Link to="/services">
+  <button className="bg-orange-500 text-white px-8 py-4 rounded-full hover:scale-105 transition">
+    View Programs
+  </button>
+</Link>
 
-            <button className="border px-8 py-4 rounded-full">
-              Explore Programs
-            </button>
+<Link to="/contact">
+  <button className="border px-8 py-4 rounded-full hover:bg-slate-50">
+    Contact sales
+  </button>
+</Link>
           </div>
 
           {/* TRUST */}

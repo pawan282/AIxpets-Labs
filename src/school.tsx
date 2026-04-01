@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
+
 import { motion } from "framer-motion";
 
 export default function Institute() {
@@ -68,13 +70,17 @@ export default function Institute() {
       </p>
 
       <div className="flex gap-4 mt-8">
-        <button className="bg-orange-500 text-white px-8 py-4 rounded-full hover:scale-105 transition shadow-lg">
-          Explore Curriculum
-        </button>
+       <Link to="/services">
+  <button className="bg-orange-500 text-white px-8 py-4 rounded-full hover:scale-105 transition">
+    View Programs
+  </button>
+</Link>
 
-        <button className="border px-8 py-4 rounded-full hover:bg-slate-50">
-          Partner with Us
-        </button>
+<Link to="/contact">
+  <button className="border px-8 py-4 rounded-full hover:bg-slate-50">
+    Contact sales
+  </button>
+</Link>
       </div>
     </motion.div>
 
@@ -198,9 +204,11 @@ export default function Institute() {
               Ready to integrate AI?
             </h2>
 
-            <button className="bg-white text-black px-8 py-3 rounded-full">
-              Schedule Demo
-            </button>
+            <Link to="/contact">
+  <button className="bg-white text-black px-8 py-3 rounded-full">
+    Schedule Demo
+  </button>
+</Link>
           </div>
 
         </div>

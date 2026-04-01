@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import About from "./about";
 
+
 import Services from "./services";
 import Portfolio from "./portfolio";
 import Contact from "./contact";
@@ -57,7 +58,7 @@ const Navbar = () => {
   <img
     src={logo}
     alt="AIxperts Labs Logo"
-    className="h-10"
+    className="h-13"
   />
 </Link>
 
@@ -391,7 +392,9 @@ const CapabilityStack = () => {
               <div className="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-600 flex items-center justify-center mb-6 group-hover:bg-orange-500 group-hover:text-white transition-all">
                 {layer.icon}
               </div>
-              <h3 className="text-xl font-bold mb-3">{layer.title}</h3>
+              <h3 className="text-xl font-bold mb-3 text-slate-900 group-hover:text-white transition-colors">
+  {layer.title}
+</h3>
               <p className="text-sm text-slate-500 group-hover:text-slate-400 leading-relaxed">{layer.desc}</p>
             </div>
           ))}
@@ -416,13 +419,18 @@ const Industries = () => {
           <div className="lg:w-1/2">
             <h2 className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight">Industry <br />Verticals</h2>
             <p className="text-slate-500 text-xl leading-relaxed mb-12">We deploy specialized AI solutions across diverse sectors, solving unique challenges with precision engineering.</p>
-            <button className="bg-slate-900 text-white px-10 py-5 rounded-full font-bold hover:bg-orange-600 transition-all flex items-center gap-3">
-              Industry Insights <ArrowUpRight className="w-5 h-5" />
-            </button>
+          <div className="mt-6">
+  <Link
+    to="/portfolio"
+    className="bg-slate-900 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-600 transition-all inline-flex items-center gap-2"
+  >
+    Industry Insights <ArrowUpRight className="w-4 h-4" />
+  </Link>
+</div>
           </div>
           <div className="lg:w-1/2 grid sm:grid-cols-2 gap-6">
             {industries.map((ind, i) => (
-              <div key={i} className="p-8 rounded-[32px] bg-slate-50 border border-slate-200 shadow-sm hover:shadow-xl transition-all">
+              <div key={i} className="p-3 rounded-[32px] bg-slate-50 border border-slate-200 shadow-sm hover:shadow-xl transition-all">
                 <div className="text-orange-600 mb-6">{ind.icon}</div>
                 <h4 className="text-lg font-bold text-slate-900 mb-3">{ind.name}</h4>
                 <p className="text-sm text-slate-500 leading-relaxed">{ind.desc}</p>
@@ -666,7 +674,7 @@ const Solutions = () => {
               <h3 className="text-3xl font-bold text-slate-900 mb-4 group-hover:text-orange-600 transition-colors">{s.title}</h3>
               <p className="text-slate-500 text-lg leading-relaxed mb-10 max-w-md">{s.desc}</p>
               <div className="flex items-center gap-2 text-slate-900 font-bold uppercase tracking-widest text-xs opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
-                Detailed Analysis <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-4 h-4" />
               </div>
             </motion.div>
           ))}
@@ -781,7 +789,7 @@ const HelloGini = () => {
             </h2>
 
             <p className="text-slate-500 mb-6">
-              Developed by AIxpets Labs, HelloGini is a revolutionary voice-first interface.
+              Developed by AIxperts Labs, HelloGini is a revolutionary voice-first interface.
             </p>
 
             {/* FEATURES */}
@@ -832,9 +840,13 @@ const CTA = () => {
           <button className="w-full sm:w-auto bg-slate-900 text-white px-12 py-6 rounded-full font-bold text-xl hover:bg-orange-600 hover:scale-105 transition-all shadow-2xl shadow-slate-200">
             Start Transformation
           </button>
-          <button className="w-full sm:w-auto bg-white border-2 border-slate-200 text-slate-900 px-12 py-6 rounded-full font-bold text-xl hover:bg-slate-50 transition-all">
-            Contact Strategy Team
-          </button>
+        
+
+<Link to="/contact">
+  <button className="w-full sm:w-auto bg-white border-2 border-slate-200 text-slate-900 px-12 py-6 rounded-full font-bold text-xl hover:bg-slate-50 transition-all">
+    Contact Strategy Team
+  </button>
+</Link>
         </div>
       </div>
       

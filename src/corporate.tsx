@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function Corporate() {
   useEffect(() => {
@@ -31,12 +32,19 @@ Transformation for the{" "}
           </p>
 
           <div className="flex gap-4 mt-8">
-            <button className="bg-orange-500 text-white px-8 py-4 rounded-full hover:scale-105 transition">
-              View Programs
-            </button>
-            <button className="border px-8 py-4 rounded-full hover:bg-slate-50">
-              Contact sales
-            </button>
+           
+
+<Link to="/services">
+  <button className="bg-orange-500 text-white px-8 py-4 rounded-full hover:scale-105 transition">
+    View Programs
+  </button>
+</Link>
+
+<Link to="/contact">
+  <button className="border px-8 py-4 rounded-full hover:bg-slate-50">
+    Contact sales
+  </button>
+</Link>
           </div>
         </motion.div>
 
@@ -221,13 +229,17 @@ Transformation for the{" "}
 
               <div className="flex justify-center gap-4 flex-wrap">
 
-                <button className="bg-white text-black px-8 py-4 rounded-full font-semibold">
-                  Schedule Consultation
-                </button>
+                <Link to="/consultation">
+  <button className="bg-white text-black px-8 py-4 rounded-full font-semibold">
+    Schedule Consultation
+  </button>
+</Link>
 
-                <button className="bg-black text-white px-8 py-4 rounded-full font-semibold">
-                  View Case Studies
-                </button>
+<Link to="/portfolio">
+  <button className="bg-black text-white px-8 py-4 rounded-full font-semibold">
+    View Case Studies
+  </button>
+</Link>
 
               </div>
 

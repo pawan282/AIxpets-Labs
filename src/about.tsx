@@ -66,9 +66,12 @@ export default function AboutPage() {
 >
   Free Consultation
 </Link>
-            <button className="px-8 py-3 border border-white/30 text-white rounded-xl font-semibold hover:bg-white/10 transition">
-              WHO WE ARE
-            </button>
+            <Link
+  to="/contact"
+  className="px-8 py-3 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition"
+>
+  WHO WE ARE
+</Link>
           </div>
 
         </div>
@@ -509,13 +512,19 @@ export default function AboutPage() {
         {/* BUTTONS */}
         <div className="flex flex-col sm:flex-row justify-center gap-6">
 
-          <button className="px-10 py-4 bg-white text-black rounded-2xl font-semibold hover:scale-105 transition shadow-xl">
-            Book Consultation
-          </button>
+                <Link
+                  to="/contact"
+                  className="px-10 py-4 bg-white text-black rounded-2xl font-semibold hover:scale-105 transition shadow-xl"
+                >
+                Book Consultation
+                </Link>
+                          
+            
 
-          <button className="px-10 py-4 border border-white/30 text-white rounded-2xl font-semibold hover:bg-white/10 transition">
+
+          {/* <button className="px-10 py-4 border border-white/30 text-white rounded-2xl font-semibold hover:bg-white/10 transition">
             Contact Strategy
-          </button>
+          </button> */}
 
         </div>
 
